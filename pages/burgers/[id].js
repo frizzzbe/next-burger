@@ -41,9 +41,8 @@ const Cheeseburger = ({burger}) => {
               src={`${burger.image}`} 
               alt={`${burger.name}`} 
               width={100} 
-              height={100} 
-              layout="responsive" 
-              objectFit="cover"
+              height={100}
+              priority={true}
             />
           </div>
           <div>

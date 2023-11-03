@@ -108,7 +108,13 @@ footer {
 }
 
 .imageContainer {
-  max-width: 150px;
+  margin: 0 auto;
+  max-width: 200px;
+}
+.imageContainer img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
 }
 .burgerCard {
   color: #2e2e2e;
@@ -128,5 +134,7 @@ footer {
   margin-top: 0;
 }
 .singleBurger {
-  max-width: 600px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }
