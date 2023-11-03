@@ -40,15 +40,20 @@ header svg {
 nav {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
 }
 nav a {
   margin-left: 15px;
   color: #2e2e2e;
   transition: color 0.1s;
+  line-height: 1.1;
 }
 nav a:hover {
   color: #ffc600;
+}
+nav a.active {
+  color: #ffc600;
+  border-bottom: 2px solid #ffc600;
 }
 footer {
   display: block;
