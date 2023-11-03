@@ -22,7 +22,7 @@ const Reviews = ({reviews}) => {
 	)
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const response =  await fetch('https://jsonplaceholder.typicode.com/comments');
   const data = await response.json();
 
