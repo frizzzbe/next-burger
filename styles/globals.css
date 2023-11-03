@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Balsamiq+Sans:wght@400;700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext&effect=fire-animation|neon|outline');
+@import url("https://fonts.googleapis.com/css?family=Balsamiq+Sans:wght@400;700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext&effect=fire-animation|neon|outline");
 
 body {
-  color: #2E2E2E;
-  font-family: 'Balsamiq Sans', cursive;
+  color: #2e2e2e;
+  font-family: "Balsamiq Sans", cursive;
   font-weight: 400;
   background-size: 200px;
   background-color: #ffffff;
@@ -44,7 +44,7 @@ nav {
 }
 nav a {
   margin-left: 15px;
-  color: #2E2E2E;
+  color: #2e2e2e;
   transition: color 0.1s;
 }
 nav a:hover {
@@ -111,7 +111,7 @@ footer {
   max-width: 150px;
 }
 .burgerCard {
-  color: #2E2E2E;
+  color: #2e2e2e;
   display: grid;
   grid-template-columns: 150px 1fr;
   gap: 10px;
