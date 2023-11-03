@@ -21,6 +21,13 @@ a {
   padding: 20px;
   background: #fff;
 }
+.mainWrapper {
+  margin: auto;
+  width: 80%;
+}
+.text {
+  text-align: center;
+}
 header {
   display: flex;
   align-items: center;
@@ -52,6 +59,10 @@ footer {
   margin-right: auto;
   margin-left: 20px;
 }
+.mainPage {
+  font-size: 3.5em;
+  text-align: center;
+}
 .not-found {
   text-align: center;
 }
@@ -77,5 +88,9 @@ footer {
   background: #ffc600;
   border-radius: 4px;
   color: #fff;
+  text-align: center;
+}
+
+.mainImage {
   text-align: center;
 }
