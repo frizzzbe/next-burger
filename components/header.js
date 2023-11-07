@@ -13,7 +13,7 @@ const Header = () => {
         <Link href="/" className={router.pathname == "/" ? "active" : ""}>Домой</Link>
         <Link href="/about" className={router.pathname == "/about" ? "active" : ""}>О нас</Link>
         <Link href="/reviews" className={router.pathname == "/reviews" ? "active" : ""}>Отзывы</Link>
-        <Link href="/burgers" className={router.pathname == "/burgers" ? "active" : ""}>Бургеры</Link>
+        <Link href="/burgers" className={router.pathname.includes("/burgers") ? "active" : ""}>Бургеры</Link>
       </nav>
     </header>
   )
