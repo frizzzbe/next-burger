@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -13,13 +14,15 @@ const Reviews = ({reviews}) => {
   useEffect(()=>{
     if(router.query.commentId) {
       setRevs(revs.filter((curr)=>curr.id == router.query.commentId))
+    } else {
+      setRevs(reviews)
     }
   }, [router.query.commentId])
 
 	return (
     <>
       <Head>
-
+        <title>{router.query.commentId ? `Супер бургеры | Отзыв №${router.query.commentId}` : "Супер бургеры | Отзывы" }</title>
       </Head>
       <div>
         <h1>Отзывы клиентов</h1>
@@ -32,6 +35,7 @@ const Reviews = ({reviews}) => {
             )
           }) }
         </ul>
+        {router.query.commentId && (<Link href="/reviews" className='btn'>Все отзывы</Link>)}
       </div>
     </>
 	)
