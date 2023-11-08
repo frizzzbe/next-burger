@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:5000/items');
+  const res = await fetch(`${process.env.API_URL}/items`);
   const data = await res.json();
 
   return {
