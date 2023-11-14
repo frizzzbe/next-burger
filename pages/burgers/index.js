@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Head from 'next/head';
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.API_URL}/items`);
+  const res = await fetch(`${process.env.API_URL}/api/burgers`);
   const data = await res.json();
 
   return {
-    props: { burgers: data }
+    props: { burgers: data.items }
   }
 }
 
