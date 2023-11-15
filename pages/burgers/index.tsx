@@ -1,18 +1,21 @@
-import React from 'react'
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
+import { burgersType } from '@/types';
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   const res = await fetch(`${process.env.API_URL}/api/burgers`);
   const data = await res.json();
 
   return {
     props: { burgers: data.items }
   }
-}
+}) satisfies GetStaticProps<{
+  burgers: burgersType
+}>
 
-const Burgers = ({burgers}) => {
+const Burgers = ({burgers}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>

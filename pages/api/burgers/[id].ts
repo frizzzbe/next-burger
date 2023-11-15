@@ -1,3 +1,6 @@
+import { burgerType } from '@/types'
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 const data = {
   "items": [
     {
@@ -25,8 +28,12 @@ const data = {
   ]
 }
 
-export default function handler(req, res) {
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<burgerType>
+) {
   const { id } = req.query 
+  const result = data.items.find((item)=>String(item.id) === id);
 
-  res.send(...data.items.filter((item)=>Number(item.id) == id))
+  res.send(result)
 }

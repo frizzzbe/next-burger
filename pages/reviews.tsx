@@ -1,19 +1,22 @@
+import { FC } from "react";
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { reviewsType } from "@/types";
 
-const Reviews = ({reviews}) => {
+const Reviews:FC<reviewsType> = ({ reviews }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter()
   const [revs, setRevs] = useState(reviews)
 
   const commentPageId = (id) => {
-    router.push(`?commentId=${id}`, false, { shallow: true })
+    router.push(`?commentId=${id}`, '', { shallow: true })
   }
 
   useEffect(()=>{
     if(router.query.commentId) {
-      setRevs(revs.filter((curr)=>curr.id == router.query.commentId))
+      setRevs(revs.filter((curr)=>String(curr.id) === router.query.commentId))
     } else {
       setRevs(reviews)
     }
@@ -41,7 +44,11 @@ const Reviews = ({reviews}) => {
 	)
 }
 
-export async function getServerSideProps() {
+type serverSideType = {
+  props: reviewsType
+}
+
+export const getServerSideProps = (async () => {
   const response =  await fetch('https://jsonplaceholder.typicode.com/comments');
   const data = await response.json();
 
@@ -50,6 +57,8 @@ export async function getServerSideProps() {
       reviews: data.slice(0, 20)
     }
   }
-}
+}) satisfies GetServerSideProps<{
+  reviews: serverSideType
+}>
 
 export default Reviews;

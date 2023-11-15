@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { SiBurgerking } from 'react-icons/si'
 import { useRouter } from "next/router";
+import { FC } from 'react';
 
-const Header = () => {
+const Header:FC = () => {
   const router = useRouter();
 
   return (

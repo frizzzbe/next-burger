@@ -1,8 +1,14 @@
-import React from "react";
 import Image from "next/image";
 import Head from "next/head";
+import type {
+  InferGetStaticPropsType,
+  GetStaticProps,
+  GetStaticPaths,
+} from 'next'
+import { burgerType } from "@/types";
 
-export const getStaticPaths = async () => {
+
+export const getStaticPaths = (async () => {
   const res = await fetch(`${process.env.API_URL}/api/burgers`);
   const data = await res.json();
 
@@ -16,19 +22,21 @@ export const getStaticPaths = async () => {
     paths,
     fallback: false,
   };
-};
+}) satisfies GetStaticPaths
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = (async (context) => {
   const id = context.params.id;
   const res = await fetch(`${process.env.API_URL}/api/burgers/${id}`);
-  const data = await res.json();
+  const burger = await res.json();
   
   return {
-    props: { burger: data }
+    props: { burger }
   }
-}
+}) satisfies GetStaticProps<{
+  burger: burgerType
+}>
 
-const Cheeseburger = ({burger}) => {
+const Burger = ({burger}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -53,4 +61,4 @@ const Cheeseburger = ({burger}) => {
   );
 };
 
-export default Cheeseburger;
+export default Burger;
