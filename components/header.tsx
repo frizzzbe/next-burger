@@ -8,7 +8,7 @@ const Header:FC = () => {
 
   return (
     <header>
-      <SiBurgerking/>
+      <SiBurgerking className='mainSvg'/>
       <h1 className="mainTitle">Наши бургеры</h1>
       <nav>
         <Link href="/" className={router.pathname == "/" ? "active" : ""}>Домой</Link>
