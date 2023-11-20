@@ -1,0 +1,33 @@
+.imageContainer {
+  margin: 0 auto;
+  max-width: 200px;
+}
+.imageContainer img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+.burgerCard {
+  color: #2e2e2e;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.043) 0px 0px 5px 3px;
+}
+.burgerCard h3 {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .burgerCard {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
