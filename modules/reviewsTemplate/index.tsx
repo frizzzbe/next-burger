@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { reviewsType } from "../../types";
+import { reviewsType } from "./reviewsTypes";
 import Review from "./Review";
 
 export const ReviewsTemplate: FC<reviewsType> = ({ reviews }: reviewsType) => {
