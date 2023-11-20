@@ -1,0 +1,11 @@
+.review {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 6px;
+  border-radius: 4px;
+}
+.review:nth-child(odd) {
+  background-color: #f0f0f0;
+}

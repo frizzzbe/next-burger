@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { reviewsType } from "../types";
+import Review from "../components/Review";
 
 const Reviews: FC<reviewsType> = ({
   reviews,
@@ -39,17 +40,15 @@ const Reviews: FC<reviewsType> = ({
         <h1>Отзывы клиентов</h1>
         <ul className="reviews">
           {!!revs.length &&
-            revs.slice(0, 20).map((res) => {
-              return (
-                <li
+            revs
+              .slice(0, 20)
+              .map((res) => (
+                <Review
+                  res={res}
                   key={res.id}
-                  className="review"
                   onClick={() => commentPageId(res.id)}
-                >
-                  {res.id + ". " + res.body}
-                </li>
-              );
-            })}
+                />
+              ))}
         </ul>
         {router.query.commentId && (
           <Link href="/reviews" className="btn">
