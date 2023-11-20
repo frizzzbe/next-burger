@@ -1,7 +1,7 @@
 import { FC } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { reviewsType } from "../types";
-import { ReviewsTemplate } from "../modules/reviewsPage/reviewsTemplate";
+import { ReviewsTemplate } from "../modules/reviewsTemplate";
 
 type serverSideType = {
   props: reviewsType;

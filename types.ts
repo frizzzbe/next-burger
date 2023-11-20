@@ -7,7 +7,7 @@ export type burgerType = {
 }
 
 export type burgersType = {
-  reviews: burgerType[]
+  burgers: burgerType[]
 }
 
 export type reviewType = {
