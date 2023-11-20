@@ -5,7 +5,7 @@ import type {
   GetStaticPaths,
 } from "next";
 import { burgerType } from "../../types";
-import Burger from "../../components/Burger";
+import Burger from "../../modules/burgersTemplate/Burger";
 
 export const getStaticPaths = (async () => {
   const res = await fetch(`${process.env.API_URL}/api/burgers`);

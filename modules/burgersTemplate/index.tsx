@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import { burgersType } from "../../types";
-import BurgerCard from "../../components/BurgerCard";
+import BurgerCard from "./BurgerCard";
 
 const BurgersTemplate: FC<burgersType> = ({ burgers }: burgersType) => {
   return (
