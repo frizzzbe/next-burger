@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
 import Layout from "../components/layout";
 import "../styles/globals.css";
 import NextNProgress from "nextjs-progressbar";
@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
         stopDelayMs={200}
         height={3}
         showOnShallow={true}
-        options={{ showSpinner: false }} 
+        options={{ showSpinner: false }}
       />
       <Component {...pageProps} />
     </Layout>

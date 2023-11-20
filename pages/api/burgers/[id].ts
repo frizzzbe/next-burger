@@ -1,4 +1,4 @@
-import { burgerType } from '@/types'
+import { burgerType } from '../../../types'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const data = {

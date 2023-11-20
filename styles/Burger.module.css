@@ -2,7 +2,7 @@
   max-width: 150px;
 }
 .burgerCard {
-  color: #2E2E2E;
+  color: #2e2e2e;
   display: grid;
   grid-template-columns: 150px 1fr;
   gap: 10px;
