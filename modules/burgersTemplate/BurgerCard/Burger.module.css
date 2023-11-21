@@ -2,11 +2,13 @@
   margin: 0 auto;
   max-width: 200px;
 }
+
 .imageContainer img {
   max-width: 200px;
   width: 100%;
   height: auto;
 }
+
 .burgerCard {
   color: #2e2e2e;
   display: grid;
@@ -21,6 +23,7 @@
   max-width: 500px;
   box-shadow: rgba(0, 0, 0, 0.043) 0px 0px 5px 3px;
 }
+
 .burgerCard h3 {
   margin-top: 0;
 }
