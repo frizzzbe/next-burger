@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { burgerType } from "../burgerTypes";
-import st from "./Burger.module.css";
+import { burgerType } from "../../../types/burgerTypes";
+import st from "./BurgerCard.module.css";
 import Link from "next/link";
 
 const BurgerCard = ({ burger }: { burger: burgerType }) => {

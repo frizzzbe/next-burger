@@ -1,4 +1,4 @@
-import { reviewType } from "../reviewsTypes";
+import { reviewType } from "../../../types/reviewTypes";
 import st from "./Review.module.css";
 
 type propsType = {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { burgerType } from "../burgerTypes";
+import { burgerType } from "../../../types/burgerTypes";
 import st from "./Burger.module.css";
 
 const Burger = ({ burger }: { burger: burgerType }) => {

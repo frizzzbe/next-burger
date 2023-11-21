@@ -4,7 +4,7 @@ import type {
   GetStaticProps,
   GetStaticPaths,
 } from "next";
-import { burgerType } from "../../types";
+import { burgerType } from "../../types/burgerTypes";
 import Burger from "../../modules/burgersTemplate/Burger";
 
 export const getStaticPaths = (async () => {

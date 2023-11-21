@@ -1,6 +1,6 @@
 import { FC } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import { reviewsType } from "../types";
+import { reviewsType } from "../types/reviewTypes";
 import { ReviewsTemplate } from "../modules/reviewsTemplate";
 
 type serverSideType = {

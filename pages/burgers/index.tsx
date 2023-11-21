@@ -1,5 +1,5 @@
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
-import { burgersType } from "../../types";
+import { burgersType } from "../../types/burgerTypes";
 import BurgersTemplate from "../../modules/burgersTemplate";
 
 export const getStaticProps = (async () => {
