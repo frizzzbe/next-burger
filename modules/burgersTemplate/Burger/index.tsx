@@ -1,12 +1,12 @@
 import Image from "next/image";
 import type { BurgerType } from "../../../types/burgerTypes";
-import st from "./Burger.module.css";
+import style from "./Burger.module.css";
 
 const Burger = ({ burger }: { burger: BurgerType }) => {
   return (
-    <div className={st.singleBurger}>
+    <div className={style.singleBurger}>
       <h1>{burger.name}</h1>
-      <div className={st.imageContainer}>
+      <div className={style.imageContainer}>
         <Image
           src={burger.image}
           alt={burger.name}

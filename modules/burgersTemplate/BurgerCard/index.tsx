@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { BurgerType } from "../../../types/burgerTypes";
-import st from "./BurgerCard.module.css";
+import style from "./BurgerCard.module.css";
 import Link from "next/link";
 
 const BurgerCard = ({ burger }: { burger: BurgerType }) => {
@@ -8,9 +8,9 @@ const BurgerCard = ({ burger }: { burger: BurgerType }) => {
     <Link
       href={`/burgers/${burger.id}`}
       key={burger.id}
-      className={st.burgerCard}
+      className={style.burgerCard}
     >
-      <div className={st.imageContainer}>
+      <div className={style.imageContainer}>
         <Image
           src={`${burger.image}`}
           alt={`${burger.name}`}

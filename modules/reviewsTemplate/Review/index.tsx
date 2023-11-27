@@ -1,5 +1,5 @@
 import type { ReviewType } from "../../../types/reviewTypes";
-import st from "./Review.module.css";
+import style from "./Review.module.css";
 
 type PropsType = {
   res: ReviewType;
@@ -9,7 +9,7 @@ type PropsType = {
 
 const Review = ({ res, onClick }: PropsType) => {
   return (
-    <li className={st.review} onClick={onClick}>
+    <li className={style.review} onClick={onClick}>
       {res.id + ". " + res.body}
     </li>
   );
