@@ -1,4 +1,4 @@
-import { burgerType } from '../../../types/burgerTypes'
+import type { BurgerType } from '../../../types/burgerTypes'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const data = {
@@ -30,7 +30,7 @@ const data = {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<burgerType>
+  res: NextApiResponse<BurgerType>
 ) {
   const { id } = req.query 
   const result = data.items.find((item)=>String(item.id) === id);

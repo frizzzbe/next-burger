@@ -4,7 +4,7 @@ import type {
   GetStaticProps,
   GetStaticPaths,
 } from "next";
-import { burgerType } from "../../types/burgerTypes";
+import type { BurgerType } from "../../types/burgerTypes";
 import Burger from "../../modules/burgersTemplate/Burger";
 
 export const getStaticPaths = (async () => {
@@ -32,7 +32,7 @@ export const getStaticProps = (async (context) => {
     props: { burger },
   };
 }) satisfies GetStaticProps<{
-  burger: burgerType;
+  burger: BurgerType;
 }>;
 
 const singleBurger = ({

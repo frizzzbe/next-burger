@@ -1,4 +1,4 @@
-export type reviewType = {
+export type ReviewType = {
   body: string,
   email: string,
   id: number,
@@ -6,6 +6,6 @@ export type reviewType = {
   postId: number
 }
 
-export type reviewsType = {
-  reviews: reviewType[]
+export type ReviewsType = {
+  reviews: ReviewType[]
 }

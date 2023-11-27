@@ -1,4 +1,4 @@
-export type burgerType = {
+export type BurgerType = {
   name: string,
   image: string,
   desc: string,
@@ -6,6 +6,6 @@ export type burgerType = {
   id: string
 }
 
-export type burgersType = {
-  burgers: burgerType[]
+export type BurgersType = {
+  burgers: BurgerType[]
 }

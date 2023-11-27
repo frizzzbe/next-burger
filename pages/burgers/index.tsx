@@ -1,5 +1,5 @@
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
-import { burgersType } from "../../types/burgerTypes";
+import type { BurgersType } from "../../types/burgerTypes";
 import BurgersTemplate from "../../modules/burgersTemplate";
 
 export const getStaticProps = (async () => {
@@ -10,7 +10,7 @@ export const getStaticProps = (async () => {
     props: { burgers: data.items },
   };
 }) satisfies GetStaticProps<{
-  burgers: burgersType;
+  burgers: BurgersType;
 }>;
 
 const Burgers = ({

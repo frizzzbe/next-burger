@@ -1,13 +1,13 @@
-import { reviewType } from "../../../types/reviewTypes";
+import type { ReviewType } from "../../../types/reviewTypes";
 import st from "./Review.module.css";
 
-type propsType = {
-  res: reviewType;
+type PropsType = {
+  res: ReviewType;
   onClick: () => void;
   key: number;
 };
 
-const Review = ({ res, onClick }: propsType) => {
+const Review = ({ res, onClick }: PropsType) => {
   return (
     <li className={st.review} onClick={onClick}>
       {res.id + ". " + res.body}

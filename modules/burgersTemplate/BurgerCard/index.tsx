@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { burgerType } from "../../../types/burgerTypes";
+import type { BurgerType } from "../../../types/burgerTypes";
 import st from "./BurgerCard.module.css";
 import Link from "next/link";
 
-const BurgerCard = ({ burger }: { burger: burgerType }) => {
+const BurgerCard = ({ burger }: { burger: BurgerType }) => {
   return (
     <Link
       href={`/burgers/${burger.id}`}

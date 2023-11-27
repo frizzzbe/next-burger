@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { burgerType } from "../../../types/burgerTypes";
+import type { BurgerType } from "../../../types/burgerTypes";
 import st from "./Burger.module.css";
 
-const Burger = ({ burger }: { burger: burgerType }) => {
+const Burger = ({ burger }: { burger: BurgerType }) => {
   return (
     <div className={st.singleBurger}>
       <h1>{burger.name}</h1>

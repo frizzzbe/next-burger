@@ -3,10 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { reviewsType } from "../../types/reviewTypes";
+import type { ReviewsType } from "../../types/reviewTypes";
 import Review from "./Review";
 
-export const ReviewsTemplate: FC<reviewsType> = ({ reviews }: reviewsType) => {
+export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
   const router = useRouter();
   const [revs, setRevs] = useState(reviews);
 

@@ -1,10 +1,10 @@
 import { FC } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import { reviewsType } from "../types/reviewTypes";
+import type { ReviewsType } from "../types/reviewTypes";
 import { ReviewsTemplate } from "../modules/reviewsTemplate";
 
-type serverSideType = {
-  props: reviewsType;
+type ServerSideType = {
+  props: ReviewsType;
 };
 
 export const getServerSideProps = (async () => {
@@ -17,10 +17,10 @@ export const getServerSideProps = (async () => {
     },
   };
 }) satisfies GetServerSideProps<{
-  reviews: serverSideType;
+  reviews: ServerSideType;
 }>;
 
-const Reviews: FC<reviewsType> = ({
+const Reviews: FC<ReviewsType> = ({
   reviews,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return <ReviewsTemplate reviews={reviews} />;
