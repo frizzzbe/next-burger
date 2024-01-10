@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 import Head from "next/head";
-import type { UsersType } from "../../types/userTypes";
+import type { UserType } from "../../types/userTypes";
 import UserCard from "./UserCard";
 import React, { MouseEventHandler, useState } from "react";
 import Select, {
@@ -26,30 +26,35 @@ const Control = ({ children, ...props }: ControlProps<FilterOption, false>) => {
   return <components.Control {...props}>{children}</components.Control>;
 };
 
-const CustomSelectProps = (props: Props<FilterOption>) => {
-  const [selectValue, setSelectValue] = useState<
-    FilterOption | MultiValue<FilterOption>
-  >();
+type CustomSelectPropsTS = {
+  setSelectValue: React.Dispatch<React.SetStateAction<string>>;
+};
 
-  useEffect(() => {
-    // заглушка пока нет логики сортировки
-    console.log(selectValue);
-  }, [selectValue]);
+const CustomSelectProps = ({ setSelectValue }: CustomSelectPropsTS) => {
+  // const [selectValue, setSelectValue] = useState<
+  //   FilterOption | MultiValue<FilterOption>
+  // >();
+
+  // useEffect(() => {
+  // заглушка пока нет логики сортировки
+  //   console.log(selectValue);
+  // }, [selectValue]);
 
   const styles: StylesConfig<FilterOption, false> = {
     control: (css) => ({ ...css, paddingLeft: "1rem", cursor: "pointer" }),
   };
 
+  // setSelectValue("last_name");
+
   return (
     <Select
-      {...props}
       components={{ Control }}
       isSearchable={false}
       name="filter"
       options={filterOptions}
       styles={styles}
       onChange={(newValue) => {
-        setSelectValue(newValue);
+        setSelectValue(newValue.value);
       }}
       placeholder="Выберите фильтр"
       // onCreateOption={handleCreate}
@@ -57,14 +62,19 @@ const CustomSelectProps = (props: Props<FilterOption>) => {
   );
 };
 
-const UsersTemplate: FC<UsersType> = ({ users }: UsersType) => {
+type UserProps = {
+  users: UserType[];
+  setSelectValue: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const UsersTemplate = ({ users, setSelectValue }: UserProps) => {
   return (
     <>
       <Head>
         <title>Список пользователей</title>
       </Head>
       <div>
-        <CustomSelectProps />
+        <CustomSelectProps setSelectValue={setSelectValue} />
         {users.map((user) => (
           <UserCard key={user.id} user={user} />
         ))}

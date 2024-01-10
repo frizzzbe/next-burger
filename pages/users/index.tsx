@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import type { UsersType } from "../../types/userTypes";
 import UsersTemplate from "../../modules/usersTemplate";
@@ -41,7 +41,14 @@ export const getServerSideProps = (async () => {
 const Users: FC<UsersType> = ({
   users,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <UsersTemplate users={users} />;
+  const [selectValue, setSelectValue] = useState("last_name");
+
+  useEffect(() => {
+    users = sortByValue(users, selectValue);
+    // console.log(sortByValue(users, selectValue));
+  }, [selectValue]);
+
+  return <UsersTemplate users={users} setSelectValue={setSelectValue} />;
 };
 
 export default Users;
