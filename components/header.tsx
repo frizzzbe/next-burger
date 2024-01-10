@@ -28,7 +28,7 @@ const Header: FC = () => {
         </Link>
         <Link
           href="/users"
-          className={router.pathname == "/users" ? "active" : ""}
+          className={router.pathname.includes("/users") ? "active" : ""}
         >
           Юзеры
         </Link>

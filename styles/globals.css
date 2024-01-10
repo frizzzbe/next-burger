@@ -103,12 +103,14 @@ footer {
 }
 
 .btn {
-  display: block;
-  width: 150px;
-  padding: 8px 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 14px 20px;
   margin: 20px auto;
   background: #ffc600;
-  border-radius: 4px;
+  border-radius: 13px;
   color: #fff;
   text-align: center;
 }
