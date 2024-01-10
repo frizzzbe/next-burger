@@ -1,8 +1,24 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import type { UsersType } from "../../types/userTypes";
 import UsersTemplate from "../../modules/usersTemplate";
-// import { ReviewsTemplate } from "../modules/reviewsTemplate";
+
+const sortByValue = (data, value) => {
+  data.sort((a, b) => {
+    let val1 = a[value].toUpperCase();
+    let val2 = b[value].toUpperCase();
+
+    if (val1 < val2) {
+      return -1;
+    }
+    if (val1 > val2) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return data;
+};
 
 type ServerSideType = {
   props: UsersType;
@@ -15,6 +31,7 @@ export const getServerSideProps = (async () => {
   return {
     props: {
       users: data.data,
+      // users: sortByValue(data.data, "last_name"),
     },
   };
 }) satisfies GetServerSideProps<{
