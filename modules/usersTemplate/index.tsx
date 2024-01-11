@@ -1,15 +1,8 @@
-import { FC, useEffect } from "react";
+import React, { useId } from "react";
 import Head from "next/head";
 import type { UserType } from "../../types/userTypes";
 import UserCard from "./UserCard";
-import React, { MouseEventHandler, useState } from "react";
-import Select, {
-  components,
-  ControlProps,
-  MultiValue,
-  Props,
-  StylesConfig,
-} from "react-select";
+import Select, { components, ControlProps, StylesConfig } from "react-select";
 
 interface FilterOption {
   value: string;
@@ -17,6 +10,7 @@ interface FilterOption {
 }
 
 const filterOptions: FilterOption[] = [
+  { value: "id", label: "Сортировать по ID пользователя" },
   { value: "first_name", label: "Сортировать по имени" },
   { value: "last_name", label: "Сортировать по фамилии" },
   { value: "email", label: "Сортировать по email" },
@@ -31,20 +25,9 @@ type CustomSelectPropsTS = {
 };
 
 const CustomSelectProps = ({ setSelectValue }: CustomSelectPropsTS) => {
-  // const [selectValue, setSelectValue] = useState<
-  //   FilterOption | MultiValue<FilterOption>
-  // >();
-
-  // useEffect(() => {
-  // заглушка пока нет логики сортировки
-  //   console.log(selectValue);
-  // }, [selectValue]);
-
   const styles: StylesConfig<FilterOption, false> = {
     control: (css) => ({ ...css, paddingLeft: "1rem", cursor: "pointer" }),
   };
-
-  // setSelectValue("last_name");
 
   return (
     <Select
@@ -57,6 +40,8 @@ const CustomSelectProps = ({ setSelectValue }: CustomSelectPropsTS) => {
         setSelectValue(newValue.value);
       }}
       placeholder="Выберите фильтр"
+      instanceId={useId()}
+      defaultValue={{ value: "id", label: "Сортировать по ID пользователя" }}
       // onCreateOption={handleCreate}
     />
   );

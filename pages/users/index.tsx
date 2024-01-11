@@ -4,20 +4,11 @@ import type { UsersType } from "../../types/userTypes";
 import UsersTemplate from "../../modules/usersTemplate";
 
 const sortByValue = (data, value) => {
-  data.sort((a, b) => {
-    let val1 = a[value].toUpperCase();
-    let val2 = b[value].toUpperCase();
-
-    if (val1 < val2) {
-      return -1;
-    }
-    if (val1 > val2) {
-      return 1;
-    }
-    return 0;
+  return data.sort((a, b) => {
+    let val1 = typeof a[value] === "string" ? a[value].toUpperCase() : a[value];
+    let val2 = typeof b[value] === "string" ? b[value].toUpperCase() : b[value];
+    return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
   });
-
-  return data;
 };
 
 type ServerSideType = {
@@ -41,14 +32,15 @@ export const getServerSideProps = (async () => {
 const Users: FC<UsersType> = ({
   users,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [selectValue, setSelectValue] = useState("last_name");
+  const [selectValue, setSelectValue] = useState();
+  const [usersList, setUsersList] = useState(users);
 
   useEffect(() => {
-    users = sortByValue(users, selectValue);
-    // console.log(sortByValue(users, selectValue));
+    const sortedArr = sortByValue(usersList, selectValue);
+    setUsersList([...sortedArr]);
   }, [selectValue]);
 
-  return <UsersTemplate users={users} setSelectValue={setSelectValue} />;
+  return <UsersTemplate users={usersList} setSelectValue={setSelectValue} />;
 };
 
 export default Users;
