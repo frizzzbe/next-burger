@@ -9,6 +9,11 @@ interface FilterOption {
   label: string;
 }
 
+type CustomSelectPropsTS = {
+  selectValue: string;
+  setSelectValue: React.Dispatch<React.SetStateAction<string>>;
+};
+
 const filterOptions: FilterOption[] = [
   { value: "id", label: "Сортировать по ID пользователя" },
   { value: "first_name", label: "Сортировать по имени" },
@@ -20,11 +25,14 @@ const Control = ({ children, ...props }: ControlProps<FilterOption, false>) => {
   return <components.Control {...props}>{children}</components.Control>;
 };
 
-type CustomSelectPropsTS = {
-  setSelectValue: React.Dispatch<React.SetStateAction<string>>;
+const getControlByValue = (str: string): FilterOption => {
+  return filterOptions.find((obj) => obj.value === str);
 };
 
-const CustomSelectProps = ({ setSelectValue }: CustomSelectPropsTS) => {
+const CustomSelectProps = ({
+  selectValue,
+  setSelectValue,
+}: CustomSelectPropsTS) => {
   const styles: StylesConfig<FilterOption, false> = {
     control: (css) => ({ ...css, paddingLeft: "1rem", cursor: "pointer" }),
   };
@@ -36,30 +44,41 @@ const CustomSelectProps = ({ setSelectValue }: CustomSelectPropsTS) => {
       name="filter"
       options={filterOptions}
       styles={styles}
+      placeholder="Выберите фильтр"
+      theme={(theme) => ({
+        ...theme,
+        colors: {
+          ...theme.colors,
+          primary25: "#ffda58",
+          primary: "#ffc600",
+        },
+      })}
+      instanceId={useId()}
+      defaultValue={getControlByValue(selectValue)}
       onChange={(newValue) => {
         setSelectValue(newValue.value);
       }}
-      placeholder="Выберите фильтр"
-      instanceId={useId()}
-      defaultValue={{ value: "id", label: "Сортировать по ID пользователя" }}
-      // onCreateOption={handleCreate}
     />
   );
 };
 
 type UserProps = {
   users: UserType[];
+  selectValue: string;
   setSelectValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const UsersTemplate = ({ users, setSelectValue }: UserProps) => {
+const UsersTemplate = ({ users, selectValue, setSelectValue }: UserProps) => {
   return (
     <>
       <Head>
         <title>Список пользователей</title>
       </Head>
       <div>
-        <CustomSelectProps setSelectValue={setSelectValue} />
+        <CustomSelectProps
+          selectValue={selectValue}
+          setSelectValue={setSelectValue}
+        />
         {users.map((user) => (
           <UserCard key={user.id} user={user} />
         ))}

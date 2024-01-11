@@ -22,7 +22,6 @@ export const getServerSideProps = (async () => {
   return {
     props: {
       users: data.data,
-      // users: sortByValue(data.data, "last_name"),
     },
   };
 }) satisfies GetServerSideProps<{
@@ -32,15 +31,37 @@ export const getServerSideProps = (async () => {
 const Users: FC<UsersType> = ({
   users,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [selectValue, setSelectValue] = useState();
+  const [selectValue, setSelectValue] = useState<string>();
   const [usersList, setUsersList] = useState(users);
 
   useEffect(() => {
     const sortedArr = sortByValue(usersList, selectValue);
     setUsersList([...sortedArr]);
+
+    if (window && selectValue) {
+      window.localStorage.setItem("filter", selectValue);
+    }
   }, [selectValue]);
 
-  return <UsersTemplate users={usersList} setSelectValue={setSelectValue} />;
+  useEffect(() => {
+    if (window) {
+      if (window.localStorage.getItem("filter")) {
+        setSelectValue(window.localStorage.getItem("filter"));
+      } else {
+        setSelectValue("id");
+      }
+    }
+  }, []);
+
+  return (
+    selectValue && (
+      <UsersTemplate
+        users={usersList}
+        selectValue={selectValue}
+        setSelectValue={setSelectValue}
+      />
+    )
+  );
 };
 
 export default Users;
