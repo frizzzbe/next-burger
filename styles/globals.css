@@ -34,10 +34,6 @@ img {
 	width: 80%;
 }
 
-.text {
-	text-align: center;
-}
-
 header {
 	display: flex;
 	align-items: center;
@@ -74,11 +70,6 @@ footer {
 	padding: 20px 0;
 }
 
-.mainPage {
-	font-size: 3.5em;
-	text-align: center;
-}
-
 .not-found {
 	text-align: center;
 }
@@ -104,18 +95,14 @@ footer {
 	font-weight: 500;
 }
 
-.btn:hover {
-	color: #000;
-	background-color: #ffce1d;
-}
-
 .btn.center {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-.mainImage {
-	text-align: center;
+.btn:hover {
+	color: #000;
+	background-color: #ffce1d;
 }
 
 .reviews {
@@ -130,10 +117,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-	.mainPage {
-		font-size: 2.5em;
-	}
-
 	.content {
 		margin: 15px auto;
 		padding: 15px 5px;
