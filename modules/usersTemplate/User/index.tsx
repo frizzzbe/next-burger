@@ -45,7 +45,7 @@ const User: FC<Props> = ({ user }) => {
         consequuntur molestiae dicta repellat blanditiis explicabo, cumque
         nostrum quam ab esse tempora dolore eaque. Libero, debitis suscipit?
       </p>
-      <Link href="/users" className="btn">
+      <Link href="/users" className="btn center">
         Все пользователи
       </Link>
     </>

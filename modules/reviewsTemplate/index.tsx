@@ -48,7 +48,7 @@ export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
               ))}
         </ul>
         {router.query.commentId && (
-          <Link href="/reviews" className="btn">
+          <Link href="/reviews" className="btn center">
             Все отзывы
           </Link>
         )}

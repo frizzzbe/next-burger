@@ -18,7 +18,7 @@ const Home: FC = () => {
         Есть ещё пара-тройка факторов, влияющих на аппетит: цены, качество
         обслуживания, правильная атмосфера заведения.
       </p>
-      <Link href="/burgers" className="btn">
+      <Link href="/burgers" className="btn center">
         Все бургеры
       </Link>
     </>
