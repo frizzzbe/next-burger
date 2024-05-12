@@ -5,18 +5,28 @@ const LoginForm: FC = () => {
 	const sendRequest = (e) => {
 		e.preventDefault();
 		const data = new FormData(e.currentTarget);
-		const username = data.get("username");
+		const login = data.get("login");
 		const password = data.get("password");
-		console.log(`You searched for username: ${username} password: ${password}`);
+
+		const options = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ email: login, password: password }),
+		};
+
+		fetch("https://reqres.in/api/login", options)
+			.then((response) => response.json())
+			.then((response) => console.log(response))
+			.catch((err) => console.error(err));
 	};
 
 	return (
 		<form className={styles.loginForm} onSubmit={sendRequest}>
-			<label htmlFor="username">Username</label>
-			<input type="text" id="username" name="username" />
-			<label htmlFor="password">Password</label>
+			<label htmlFor="login">Логин</label>
+			<input type="text" id="login" name="login" />
+			<label htmlFor="password">Пароль</label>
 			<input type="password" id="password" name="password" />
-			<input className="btn" type="submit" value="Login" />
+			<input className="btn" type="submit" value="Войти" />
 		</form>
 	);
 };
