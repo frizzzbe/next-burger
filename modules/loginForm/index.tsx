@@ -45,7 +45,7 @@ const LoginForm: FC = () => {
 	return (
 		<form className={styles.loginForm} onSubmit={handleSubmit(sendRequest)}>
 			{loginStatus.error && (
-				<span style={{ color: "red" }}>{loginStatus.error}</span>
+				<span className={styles.formError}>{loginStatus.error}</span>
 			)}
 			<label htmlFor="email">Логин</label>
 			<input type="text" id="email" {...register("email")} />

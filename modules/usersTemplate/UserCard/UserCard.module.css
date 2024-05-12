@@ -1,56 +1,57 @@
 .userCard {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 10px;
-  padding: 10px 30px;
-  margin-top: 10px;
-  gap: 40px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 10px;
+	padding: 10px 30px;
+	margin-top: 10px;
+	gap: 40px;
 }
 
 .userCard:nth-child(odd) {
-  background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
 
 .imageContainer {
-  font-size: 0;
+	font-size: 0;
 }
 
 .imageContainer img {
-  min-width: 70px;
-  min-height: 70px;
-  border-radius: 10px;
+	min-width: 70px;
+	min-height: 70px;
+	border-radius: 10px;
+	object-fit: cover;
 }
 
 .infoBlock {
-  left: 0;
-  color: black;
+	left: 0;
+	color: black;
 }
 
 .infoBlock p,
 .infoBlock h3 {
-  margin-top: 8px;
-  margin-bottom: 8px;
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 .infoId {
-  margin-left: auto;
-  font-size: 26px;
-  font-weight: 600;
-  color: black;
+	margin-left: auto;
+	font-size: 26px;
+	font-weight: 600;
+	color: black;
 }
 
 @media screen and (max-width: 768px) {
-  .userCard {
-    gap: 8px;
-    padding: 8px 10px;
-  }
+	.userCard {
+		gap: 8px;
+		padding: 8px 10px;
+	}
 
-  .infoBlock {
-    font-size: 12px;
-  }
+	.infoBlock {
+		font-size: 12px;
+	}
 
-  .infoId {
-    display: none;
-  }
+	.infoId {
+		display: none;
+	}
 }

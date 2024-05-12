@@ -25,3 +25,8 @@
 	border-radius: 10px;
 	background-color: #fff9e2;
 }
+
+.formError {
+	font-size: 18px;
+	color: red;
+}
