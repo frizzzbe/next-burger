@@ -2,21 +2,11 @@ import React, { useEffect, useState, type FC } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import styles from "./LoginForm.module.css";
-
-type Inputs = {
-	email: string;
-	password: string;
-};
-
-type LoginStatus = {
-	id?: string;
-	token?: string;
-	error?: string;
-};
+import { LoginInputs, LoginStatus } from "../../types/userTypes";
 
 const LoginForm: FC = () => {
 	const router = useRouter();
-	const { register, handleSubmit } = useForm<Inputs>();
+	const { register, handleSubmit } = useForm<LoginInputs>();
 	const [loginStatus, setLoginStatus] = useState<LoginStatus>({});
 
 	useEffect(() => {
@@ -27,7 +17,7 @@ const LoginForm: FC = () => {
 		}
 	}, [loginStatus]);
 
-	const sendRequest: SubmitHandler<Inputs> = (data) => {
+	const sendRequest: SubmitHandler<LoginInputs> = (data) => {
 		const options = {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
