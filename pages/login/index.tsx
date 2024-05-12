@@ -1,3 +1,4 @@
+"use client";
 import LoginForm from "../../modules/loginForm";
 import type { FC } from "react";
 
