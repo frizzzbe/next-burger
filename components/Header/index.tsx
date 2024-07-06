@@ -1,22 +1,12 @@
 import Link from "next/link";
 import { SiBurgerking } from "react-icons/si";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import type { FC } from "react";
 import styles from "./Header.module.css";
+import ProfileLink from "../ProfileLink";
 
 const Header: FC = () => {
 	const router = useRouter();
-	const [isAuth, setIsAuth] = useState(false);
-
-	useEffect(() => {
-		if (typeof window) {
-			if (localStorage.getItem("userId")) {
-				setIsAuth(true);
-			} else {
-				setIsAuth(false);
-			}
-		}
-	}, []);
 
 	return (
 		<header>
@@ -50,21 +40,7 @@ const Header: FC = () => {
 				>
 					Бургеры
 				</Link>
-				{isAuth ? (
-					router.pathname.includes("/profile") ? (
-						<Link href="/logut" className={styles.loginBtn}>
-							Выйти
-						</Link>
-					) : (
-						<Link href="/profile" className={styles.loginBtn}>
-							Профиль
-						</Link>
-					)
-				) : (
-					<Link href="/login" className={styles.loginBtn}>
-						Войти
-					</Link>
-				)}
+				<ProfileLink />
 			</nav>
 		</header>
 	);
