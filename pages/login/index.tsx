@@ -1,4 +1,3 @@
-"use client";
 import Head from "next/head";
 import LoginForm from "../../modules/loginForm";
 import type { FC } from "react";

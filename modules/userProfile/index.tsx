@@ -1,12 +1,14 @@
-import Image from "next/image";
-import styles from "./UserProfile.module.css";
 import React, { useEffect, useState } from "react";
 import useSWR, { Fetcher } from "swr";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import type { FC } from "react";
 import type { ProfileInfo } from "../../types/userTypes";
+import styles from "./UserProfile.module.css";
 
 const UserProfile: FC = () => {
+	const router = useRouter();
 	const [userId, setUserId] = useState<string>();
 	const fetcher: Fetcher<ProfileInfo, string> = (...args) =>
 		fetch(...args)
@@ -17,10 +19,15 @@ const UserProfile: FC = () => {
 			});
 
 	useEffect(() => {
-		if (window) {
-			setUserId(localStorage.getItem("userId"));
+		if (typeof window) {
+			if (localStorage.getItem("userId")) {
+				setUserId(localStorage.getItem("userId"));
+			} else {
+				router.push("/login");
+			}
 		}
 	}, []);
+
 	const { data, error } = useSWR(
 		`https://reqres.in/api/users/?id=${userId}`,
 		fetcher

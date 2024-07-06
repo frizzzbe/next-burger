@@ -10,8 +10,7 @@ const LoginForm: FC = () => {
 	const [loginStatus, setLoginStatus] = useState<LoginStatus>({});
 
 	useEffect(() => {
-		// console.log(loginStatus);
-		// перебрасывать на страницу профиль при успехе + записывать данные в локалстор
+		// поменять логрику на нукис
 		if (loginStatus.id) {
 			localStorage.setItem("userId", loginStatus.id);
 			router.push("/profile");
