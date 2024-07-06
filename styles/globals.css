@@ -115,6 +115,13 @@ footer {
 	margin: 0;
 }
 
+.profileWrapper {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
 @media screen and (max-width: 400px) {
 	.mainWrapper {
 		width: 95%;

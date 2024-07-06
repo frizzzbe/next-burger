@@ -2,7 +2,7 @@ import React, { useEffect, useState, type FC } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import styles from "./LoginForm.module.css";
-import { LoginInputs, LoginStatus } from "../../types/userTypes";
+import { LoginInputs, LoginStatus } from "@/types/userTypes";
 
 const LoginForm: FC = () => {
 	const router = useRouter();
@@ -13,6 +13,7 @@ const LoginForm: FC = () => {
 		// console.log(loginStatus);
 		// перебрасывать на страницу профиль при успехе + записывать данные в локалстор
 		if (loginStatus.id) {
+			localStorage.setItem("userId", loginStatus.id);
 			router.push("/profile");
 		}
 	}, [loginStatus]);
