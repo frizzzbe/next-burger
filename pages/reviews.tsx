@@ -4,26 +4,26 @@ import type { ReviewsType } from "../types/reviewTypes";
 import { ReviewsTemplate } from "../modules/reviewsTemplate";
 
 type ServerSideType = {
-  props: ReviewsType;
+	props: ReviewsType;
 };
 
 export const getServerSideProps = (async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/comments");
-  const data = await response.json();
+	const response = await fetch("https://jsonplaceholder.typicode.com/comments");
+	const data = await response.json();
 
-  return {
-    props: {
-      reviews: data.slice(0, 20),
-    },
-  };
+	return {
+		props: {
+			reviews: data.slice(0, 20),
+		},
+	};
 }) satisfies GetServerSideProps<{
-  reviews: ServerSideType;
+	reviews: ServerSideType;
 }>;
 
 const Reviews: FC<ReviewsType> = ({
-  reviews,
+	reviews,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <ReviewsTemplate reviews={reviews} />;
+	return <ReviewsTemplate reviews={reviews} />;
 };
 
 export default Reviews;

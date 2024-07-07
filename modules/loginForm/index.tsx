@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import styles from "./LoginForm.module.css";
 import { LoginInputs, LoginStatus } from "@/types/userTypes";
+import { setCookie } from "cookies-next";
 
 const LoginForm: FC = () => {
 	const router = useRouter();
@@ -10,9 +11,8 @@ const LoginForm: FC = () => {
 	const [loginStatus, setLoginStatus] = useState<LoginStatus>({});
 
 	useEffect(() => {
-		// поменять логрику на нукис
 		if (loginStatus.id) {
-			localStorage.setItem("userId", loginStatus.id);
+			setCookie("userId", loginStatus.id);
 			router.push("/profile");
 		}
 	}, [loginStatus]);

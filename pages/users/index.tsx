@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import { getCookie, hasCookie, setCookie } from "cookies-next";
 import type { UsersType } from "../../types/userTypes";
 import UsersTemplate from "../../modules/usersTemplate";
 
@@ -38,15 +39,16 @@ const Users: FC<UsersType> = ({
 		const sortedArr = sortByValue(usersList, selectValue);
 		setUsersList([...sortedArr]);
 
-		if (window && selectValue) {
-			window.localStorage.setItem("filter", selectValue);
+		// TODO удалить window перенести в сервак
+		if (typeof window && selectValue) {
+			setCookie("filter", selectValue);
 		}
 	}, [selectValue]);
 
 	useEffect(() => {
-		if (window) {
-			if (window.localStorage.getItem("filter")) {
-				setSelectValue(window.localStorage.getItem("filter"));
+		if (typeof window) {
+			if (hasCookie("filter")) {
+				setSelectValue(getCookie("filter"));
 			} else {
 				setSelectValue("id");
 			}

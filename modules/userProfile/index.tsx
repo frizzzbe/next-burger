@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { FC } from "react";
 import type { ProfileInfo } from "../../types/userTypes";
 import styles from "./UserProfile.module.css";
+import { getCookie, hasCookie } from "cookies-next";
 
 const UserProfile: FC = () => {
 	const router = useRouter();
@@ -20,8 +21,8 @@ const UserProfile: FC = () => {
 
 	useEffect(() => {
 		if (typeof window) {
-			if (localStorage.getItem("userId")) {
-				setUserId(localStorage.getItem("userId"));
+			if (hasCookie("userId")) {
+				setUserId(getCookie("userId"));
 			} else {
 				router.push("/login");
 			}
