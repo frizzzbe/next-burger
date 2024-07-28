@@ -59,6 +59,3 @@ const UserProfile: FC = () => {
 };
 
 export default UserProfile;
-
-// getServerSideProps + nookies and ssr prefetching
-// уменьшить рендер и вызов fetch до одного

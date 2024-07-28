@@ -38,9 +38,7 @@ const Users: FC<UsersType> = ({
 	useEffect(() => {
 		const sortedArr = sortByValue(usersList, selectValue);
 		setUsersList([...sortedArr]);
-
-		// TODO удалить window перенести в сервак
-		if (typeof window && selectValue) {
+		if (selectValue) {
 			setCookie("filter", selectValue);
 		}
 	}, [selectValue]);
