@@ -7,7 +7,7 @@ import { setCookie } from "cookies-next";
 
 const LoginForm: FC = () => {
 	const router = useRouter();
-	const { register, handleSubmit } = useForm<LoginInputs>();
+	const { register, handleSubmit, setValue } = useForm<LoginInputs>({});
 	const [loginStatus, setLoginStatus] = useState<LoginStatus>({});
 
 	useEffect(() => {
@@ -16,6 +16,11 @@ const LoginForm: FC = () => {
 			router.push("/profile");
 		}
 	}, [loginStatus]);
+
+	const setCorrectData = () => {
+		setValue("email", "tracey.ramos@reqres.in");
+		setValue("password", "Charles123123");
+	};
 
 	const sendRequest: SubmitHandler<LoginInputs> = (data) => {
 		const options = {
@@ -41,6 +46,12 @@ const LoginForm: FC = () => {
 			<input type="text" id="email" {...register("email")} />
 			<label htmlFor="password">Пароль</label>
 			<input type="password" id="password" {...register("password")} />
+			<input
+				className="btn"
+				type="button"
+				value="Подставить корректные данные"
+				onClick={setCorrectData}
+			/>
 			<input className="btn" type="submit" value="Войти" />
 		</form>
 	);
