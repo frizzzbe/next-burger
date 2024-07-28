@@ -38,23 +38,24 @@ const UserProfile: FC = () => {
 
 	if (isLoading) return <p className={styles.loading}>Loading...</p>;
 
-	return (
-		<>
-			<Image
-				className={styles.profileImage}
-				src={data.avatar}
-				width={200}
-				height={200}
-				priority={true}
-				alt="Изображение профиля"
-			/>
-			<div>
-				<p>{data.first_name}</p>
-				<p>{data.last_name}</p>
-				<Link href={`mailto:${data.email}`}>{data.email}</Link>
-			</div>
-		</>
-	);
+	if (data)
+		return (
+			<>
+				<Image
+					className={styles.profileImage}
+					src={data.avatar}
+					width={200}
+					height={200}
+					priority={true}
+					alt="Изображение профиля"
+				/>
+				<div>
+					<p>{data.first_name}</p>
+					<p>{data.last_name}</p>
+					<Link href={`mailto:${data.email}`}>{data.email}</Link>
+				</div>
+			</>
+		);
 };
 
 export default UserProfile;
