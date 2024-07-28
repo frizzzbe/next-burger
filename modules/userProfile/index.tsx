@@ -29,14 +29,14 @@ const UserProfile: FC = () => {
 		}
 	}, []);
 
-	const { data, error } = useSWR(
+	const { data, error, isLoading } = useSWR(
 		`https://reqres.in/api/users/?id=${userId}`,
 		fetcher
 	);
 
 	if (error) return <p>Ошибка при загрузке данных пользователя</p>;
 
-	if (!data) return <p className={styles.loading}>Loading...</p>;
+	if (isLoading) return <p className={styles.loading}>Loading...</p>;
 
 	return (
 		<>
