@@ -8,9 +8,7 @@ const Main: FC = () => {
   return (
     <>
       <Head>
-        <title>
-          {i18n.mainTitle} | {i18n.main}
-        </title>
+        <title>{i18n.mainTitle + "|" + i18n.main}</title>
       </Head>
       <Home />
     </>

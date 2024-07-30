@@ -1,5 +1,5 @@
 import React, { useId } from "react";
-import type { UserType } from "../../types/userTypes";
+import type { UserType } from "@/types/userTypes";
 import UserCard from "./UserCard";
 import useLocale from "@/hooks/useLocale";
 import Select, { components, ControlProps, StylesConfig } from "react-select";
