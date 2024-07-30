@@ -18,6 +18,10 @@ const nextConfig = {
   env: {
     API_URL: "http://localhost:3000",
   },
+  i18n: {
+    locales: ["en", "ru"],
+    defaultLocale: "ru",
+  },
 };
 
 module.exports = nextConfig;

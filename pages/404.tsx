@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { FC, useEffect } from "react";
 import { useRouter } from "next/router";
+import useLocale from "@/hooks/useLocale";
 
 const NotFoundPage: FC = () => {
   const router = useRouter();
+  const i18n = useLocale();
 
   useEffect(() => {
     setTimeout(() => {
@@ -13,10 +15,10 @@ const NotFoundPage: FC = () => {
 
   return (
     <div className="not-found">
-      <h1>Ой!</h1>
-      <h2>Такой страницы здесь нет</h2>
+      <h1>{i18n.notFoundTitle}</h1>
+      <h2>{i18n.notFoundMessage}</h2>
       <p>
-        Перейти на <Link href="/">главную траницу</Link>
+        {i18n.notFoundAction} <Link href="/">{i18n.notFoundLinkMain}</Link>
       </p>
     </div>
   );

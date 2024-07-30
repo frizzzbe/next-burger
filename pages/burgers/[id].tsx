@@ -1,9 +1,5 @@
 import Head from "next/head";
-import type {
-  InferGetStaticPropsType,
-  GetStaticProps,
-  GetStaticPaths,
-} from "next";
+import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from "next";
 import type { BurgerType } from "../../types/burgerTypes";
 import Burger from "../../modules/burgersTemplate/Burger";
 
@@ -14,8 +10,19 @@ export const getStaticPaths = (async () => {
   const paths = data.items.map((burger) => {
     return {
       params: { id: burger.id },
+      locale: "ru",
     };
   });
+
+  const pathsEn = data.items.map((burger) => {
+    return {
+      params: { id: burger.id },
+      locale: "en",
+    };
+  });
+
+  const pathArr = paths.concat(pathsEn);
+  console.log("🚀 ~ getStaticPaths ~ pathArr:", pathArr);
 
   return {
     paths,
@@ -35,9 +42,7 @@ export const getStaticProps = (async (context) => {
   burger: BurgerType;
 }>;
 
-const singleBurger = ({
-  burger,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const singleBurger = ({ burger }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>

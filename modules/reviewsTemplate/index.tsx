@@ -2,12 +2,14 @@ import { FC } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useLocale from "@/hooks/useLocale";
 import { useEffect, useState } from "react";
 import type { ReviewsType } from "../../types/reviewTypes";
 import Review from "./Review";
 
 export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
   const router = useRouter();
+  const i18n = useLocale();
   const [revs, setRevs] = useState(reviews);
 
   const commentPageId = (id) => {
@@ -16,9 +18,7 @@ export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
 
   useEffect(() => {
     if (router.query.commentId) {
-      setRevs(
-        revs.filter((curr) => String(curr.id) === router.query.commentId)
-      );
+      setRevs(revs.filter((curr) => String(curr.id) === router.query.commentId));
     } else {
       setRevs(reviews);
     }
@@ -29,27 +29,23 @@ export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
       <Head>
         <title>
           {router.query.commentId
-            ? `Супер бургеры | Отзыв №${router.query.commentId}`
-            : "Супер бургеры | Отзывы"}
+            ? `${i18n.mainTitle} | ${i18n.reviewTitle} №${router.query.commentId}`
+            : `${i18n.mainTitle} | ${i18n.reviewsTitle}`}
         </title>
       </Head>
       <div>
-        <h1>Отзывы клиентов</h1>
+        <h1>{i18n.reviews}</h1>
         <ul className="reviews">
           {!!revs.length &&
             revs
               .slice(0, 20)
               .map((res) => (
-                <Review
-                  res={res}
-                  key={res.id}
-                  onClick={() => commentPageId(res.id)}
-                />
+                <Review res={res} key={res.id} onClick={() => commentPageId(res.id)} />
               ))}
         </ul>
         {router.query.commentId && (
           <Link href="/reviews" className="btn center">
-            Все отзывы
+            {i18n.reviewsAllReviews}
           </Link>
         )}
       </div>
