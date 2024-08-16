@@ -21,8 +21,8 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async (context) => {
-  const id = context.params.id;
-  const res = await fetch(`${process.env.API_URL}/api/burgers/${id}`);
+  const { id, locale } = context.params;
+  const res = await fetch(`${process.env.API_URL}/api/burgers/${id}?locale=${locale}`);
   const burger = await res.json();
 
   return {

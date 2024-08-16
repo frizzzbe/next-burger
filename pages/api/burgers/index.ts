@@ -1,32 +1,13 @@
-export default async function handler(req, res) {
+import { getBurgers } from "@/locales/burgersApi";
+import type { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
+    const { locale } = req.query;
     res.status(200).send({
-      "items": [
-        {
-          "name": "Чизбургер",
-          "image": "/images/cheese.jpg",
-          "desc":
-          "Классический бургер с бифштексом из 100% говядины с маринованными огурчиками и свежей пшеничной булочкой.",
-          "price": 110,
-          "id": "001"
-        },
-        {
-          "name": "Чикен Бургер",
-          "image": "/images/chicken.jpg",
-          "desc": "Куриный бургер с добавлением расплавленного сыра, соуса Барбекю и листового салата.",
-          "price": 150,
-          "id": "002"
-        },
-        {
-          "name": "Двойной Гамбургер",
-          "image": "/images/double.jpg",
-          "desc": "Двойной гамбургер с бифштексом из 100% говядины и расплавленным сыром Чеддер и пряным соусом.",
-          "price": 200,
-          "id": "003"
-        }
-      ]
-    })
+      items: getBurgers(locale),
+    });
   } catch (err) {
-    res.status(500).send({ error: 'failed to fetch data' })
+    res.status(500).send({ error: "failed to fetch data" });
   }
 }
