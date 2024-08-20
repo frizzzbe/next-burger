@@ -1,5 +1,5 @@
 import Head from "next/head";
-import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from "next";
+import { type InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from "next";
 import type { BurgerType } from "@/types/burgerTypes";
 import Burger from "@/modules/burgersTemplate/Burger";
 
