@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import useLocale from "@/hooks/useLocale";
 import type { FC } from "react";
 import styles from "./Header.module.css";
-import ProfileLink from "../ProfileLink";
+import ProfileLink from "@/components/ProfileLink";
 
 const Header: FC = () => {
   const pathname = usePathname();

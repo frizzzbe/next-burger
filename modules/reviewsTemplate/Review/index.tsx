@@ -1,4 +1,4 @@
-import type { ReviewType } from "../../../types/reviewTypes";
+import type { ReviewType } from "@/types/reviewTypes";
 import style from "./Review.module.css";
 
 type PropsType = {

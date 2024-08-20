@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import useLocale from "@/hooks/useLocale";
 import { useEffect, useState } from "react";
-import type { ReviewsType } from "../../types/reviewTypes";
+import type { ReviewsType } from "@/types/reviewTypes";
 import Review from "./Review";
 
 export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {

@@ -1,4 +1,4 @@
-import Home from "../components/Home";
+import Home from "@/components/Home";
 import Head from "next/head";
 import { FC } from "react";
 import useLocale from "@/hooks/useLocale";

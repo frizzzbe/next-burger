@@ -1,4 +1,4 @@
-import UserProfile from "../../modules/userProfile";
+import UserProfile from "@/modules/userProfile";
 import type { FC } from "react";
 import useLocale from "@/hooks/useLocale";
 import Head from "next/head";

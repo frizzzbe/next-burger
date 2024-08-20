@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { FC } from "react";
-import About from "../components/about";
+import About from "@/components/about";
 import useLocale from "@/hooks/useLocale";
 
 const AboutPage: FC = () => {

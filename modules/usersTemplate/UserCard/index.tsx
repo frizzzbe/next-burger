@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { UserType } from "../../../types/userTypes";
+import type { UserType } from "@/types/userTypes";
 import style from "./UserCard.module.css";
 import Link from "next/link";
 
@@ -7,12 +7,7 @@ const UserCard = ({ user }: { user: UserType }) => {
   return (
     <Link href={`/users/${user.id}`} key={user.id} className={style.userCard}>
       <div className={style.imageContainer}>
-        <Image
-          src={`${user.avatar}`}
-          alt={`${user.first_name}`}
-          width={70}
-          height={70}
-        />
+        <Image src={`${user.avatar}`} alt={`${user.first_name}`} width={70} height={70} />
       </div>
       <div className={style.infoBlock}>
         <h3>{user.email}</h3>

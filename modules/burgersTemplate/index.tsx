@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import useLocale from "@/hooks/useLocale";
-import type { BurgersType } from "../../types/burgerTypes";
+import type { BurgersType } from "@/types/burgerTypes";
 import BurgerCard from "./BurgerCard";
 
 const BurgersTemplate: FC<BurgersType> = ({ burgers }: BurgersType) => {

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import type { UserType } from "../../../types/userTypes";
+import type { UserType } from "@/types/userTypes";
 import useLocale from "@/hooks/useLocale";
 import style from "./User.module.css";
 import Link from "next/link";
