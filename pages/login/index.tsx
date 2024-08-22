@@ -1,10 +1,10 @@
-import Head from "next/head";
-import LoginForm from "@/modules/loginForm";
-import useLocale from "@/hooks/useLocale";
-import type { FC } from "react";
+import Head from "next/head"
+import LoginForm from "@/modules/loginForm"
+import useLocale from "@/hooks/useLocale"
+import type { FC } from "react"
 
 const Login: FC = () => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const Login: FC = () => {
       <h1>{i18n.loginTitle}</h1>
       <LoginForm />
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

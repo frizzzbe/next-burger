@@ -45,4 +45,4 @@ export default {
   profileImageAlt: "Profile picture",
   copyright: `Copyright 2024 - Super burgers.`,
   changeLanguage: "Русский язык",
-};
+}

@@ -1,3 +1,4 @@
+/* eslint-env node */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -22,6 +23,6 @@ const nextConfig = {
     locales: ["en", "ru"],
     defaultLocale: "ru",
   },
-};
+}
 
-export default nextConfig;
+module.exports = nextConfig

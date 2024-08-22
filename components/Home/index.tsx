@@ -1,11 +1,11 @@
-import { FC } from "react";
-import useLocale from "@/hooks/useLocale";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./Home.module.css";
+import { FC } from "react"
+import useLocale from "@/hooks/useLocale"
+import Image from "next/image"
+import Link from "next/link"
+import styles from "./Home.module.css"
 
 const Home: FC = () => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <h1 className={styles.mainPage}>{i18n.main}</h1>
@@ -18,7 +18,7 @@ const Home: FC = () => {
         {i18n.allBurgers}
       </Link>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

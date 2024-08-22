@@ -1,12 +1,12 @@
 {
-  "semi": true,
+  "semi": false,
   "singleQuote": false,
   "tabWidth": 2,
   "useTabs": false,
   "bracketSpacing": true,
   "jsxSingleQuote": false,
   "quoteProps": "as-needed",
-  "endOfLine": "lf",
+  "endOfLine": "crlf",
   "proseWrap": "never",
   "printWidth": 100
 }

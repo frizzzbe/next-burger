@@ -1,7 +1,7 @@
-import Image from "next/image";
-import type { UserType } from "@/types/userTypes";
-import style from "./UserCard.module.css";
-import Link from "next/link";
+import Image from "next/image"
+import type { UserType } from "@/types/userTypes"
+import style from "./UserCard.module.css"
+import Link from "next/link"
 
 const UserCard = ({ user }: { user: UserType }) => {
   return (
@@ -17,7 +17,7 @@ const UserCard = ({ user }: { user: UserType }) => {
       </div>
       <div className={style.infoId}>#{user.id}</div>
     </Link>
-  );
-};
+  )
+}
 
-export default UserCard;
+export default UserCard

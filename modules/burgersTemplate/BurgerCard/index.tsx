@@ -1,7 +1,7 @@
-import Image from "next/image";
-import type { BurgerType } from "@/types/burgerTypes";
-import style from "./BurgerCard.module.css";
-import Link from "next/link";
+import Image from "next/image"
+import type { BurgerType } from "@/types/burgerTypes"
+import style from "./BurgerCard.module.css"
+import Link from "next/link"
 
 const BurgerCard = ({ burger }: { burger: BurgerType }) => {
   return (
@@ -14,7 +14,7 @@ const BurgerCard = ({ burger }: { burger: BurgerType }) => {
         <p>{burger.desc}</p>
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default BurgerCard;
+export default BurgerCard

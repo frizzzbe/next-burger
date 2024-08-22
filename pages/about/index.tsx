@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { FC } from "react";
-import About from "@/components/about";
-import useLocale from "@/hooks/useLocale";
+import Head from "next/head"
+import { FC } from "react"
+import About from "@/components/about"
+import useLocale from "@/hooks/useLocale"
 
 const AboutPage: FC = () => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const AboutPage: FC = () => {
       </Head>
       <About />
     </>
-  );
-};
+  )
+}
 
-export default AboutPage;
+export default AboutPage

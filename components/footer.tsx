@@ -1,14 +1,14 @@
-import useLocale from "@/hooks/useLocale";
-import useCurrentLink from "@/hooks/useCurrentLink";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { FC } from "react";
+import useLocale from "@/hooks/useLocale"
+import useCurrentLink from "@/hooks/useCurrentLink"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { FC } from "react"
 
 const Footer: FC = () => {
-  const i18n = useLocale();
-  const router = useRouter();
-  const { pathname, query, locale } = router;
-  const href = useCurrentLink(pathname, query);
+  const i18n = useLocale()
+  const router = useRouter()
+  const { pathname, query, locale } = router
+  const href = useCurrentLink(pathname, query)
 
   return (
     <footer>
@@ -17,7 +17,7 @@ const Footer: FC = () => {
         {i18n.changeLanguage}
       </Link>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

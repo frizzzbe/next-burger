@@ -1,11 +1,11 @@
-import { FC } from "react";
-import Head from "next/head";
-import useLocale from "@/hooks/useLocale";
-import type { BurgersType } from "@/types/burgerTypes";
-import BurgerCard from "./BurgerCard";
+import { FC } from "react"
+import Head from "next/head"
+import useLocale from "@/hooks/useLocale"
+import type { BurgersType } from "@/types/burgerTypes"
+import BurgerCard from "./BurgerCard"
 
 const BurgersTemplate: FC<BurgersType> = ({ burgers }: BurgersType) => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ const BurgersTemplate: FC<BurgersType> = ({ burgers }: BurgersType) => {
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default BurgersTemplate;
+export default BurgersTemplate

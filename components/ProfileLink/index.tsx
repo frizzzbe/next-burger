@@ -1,27 +1,27 @@
-import { useEffect, useState, type FC } from "react";
-import { useRouter } from "next/router";
-import useLocale from "@/hooks/useLocale";
-import Link from "next/link";
-import { deleteCookie, hasCookie } from "cookies-next";
-import styles from "./ProfileLink.module.css";
+import { useEffect, useState, type FC } from "react"
+import { useRouter } from "next/router"
+import useLocale from "@/hooks/useLocale"
+import Link from "next/link"
+import { deleteCookie, hasCookie } from "cookies-next"
+import styles from "./ProfileLink.module.css"
 
 const ProfileLink: FC = () => {
-  const router = useRouter();
-  const i18n = useLocale();
-  const [isAuth, setIsAuth] = useState(false);
-  const isProfilePage = router.pathname.includes("/profile");
+  const router = useRouter()
+  const i18n = useLocale()
+  const [isAuth, setIsAuth] = useState(false)
+  const isProfilePage = router.pathname.includes("/profile")
 
   const logoutUser = (e) => {
     if (isProfilePage) {
-      e.preventDefault();
-      deleteCookie("userId");
-      router.push("/login");
+      e.preventDefault()
+      deleteCookie("userId")
+      router.push("/login")
     }
-  };
+  }
 
   useEffect(() => {
-    hasCookie("userId") ? setIsAuth(true) : setIsAuth(false);
-  }, [hasCookie("userId")]);
+    hasCookie("userId") ? setIsAuth(true) : setIsAuth(false)
+  }, [hasCookie("userId")])
 
   return (
     <>
@@ -35,7 +35,7 @@ const ProfileLink: FC = () => {
         </Link>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ProfileLink;
+export default ProfileLink

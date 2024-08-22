@@ -1,10 +1,10 @@
-import Home from "@/components/Home";
-import Head from "next/head";
-import { FC } from "react";
-import useLocale from "@/hooks/useLocale";
+import Home from "@/components/Home"
+import Head from "next/head"
+import { FC } from "react"
+import useLocale from "@/hooks/useLocale"
 
 const Main: FC = () => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <Head>
@@ -12,7 +12,7 @@ const Main: FC = () => {
       </Head>
       <Home />
     </>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

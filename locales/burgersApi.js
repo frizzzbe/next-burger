@@ -21,7 +21,7 @@ const ruBurgers = [
     price: 200,
     id: "003",
   },
-];
+]
 
 const enBurgers = [
   {
@@ -45,6 +45,6 @@ const enBurgers = [
     price: 200,
     id: "003",
   },
-];
+]
 
-export const getBurgers = (locale) => (locale === "ru" ? ruBurgers : enBurgers);
+export const getBurgers = (locale) => (locale === "ru" ? ruBurgers : enBurgers)

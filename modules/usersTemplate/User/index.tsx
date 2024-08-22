@@ -1,16 +1,11 @@
-import type { FC } from "react";
-import Image from "next/image";
-import type { UserType } from "@/types/userTypes";
-import useLocale from "@/hooks/useLocale";
-import style from "./User.module.css";
-import Link from "next/link";
+import Image from "next/image"
+import type { UserType } from "@/types/userTypes"
+import useLocale from "@/hooks/useLocale"
+import style from "./User.module.css"
+import Link from "next/link"
 
-type Props = {
-  user: UserType;
-};
-
-const User: FC<Props> = ({ user }) => {
-  const i18n = useLocale();
+const User = ({ user }: { user: UserType }) => {
+  const i18n = useLocale()
 
   return (
     <>
@@ -40,7 +35,7 @@ const User: FC<Props> = ({ user }) => {
         {i18n.usersAllUsers}
       </Link>
     </>
-  );
-};
+  )
+}
 
-export default User;
+export default User

@@ -1,28 +1,28 @@
-import { useEffect, useState } from "react";
-import type { FC } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import useLocale from "@/hooks/useLocale";
-import type { ReviewsType } from "@/types/reviewTypes";
-import Review from "./Review";
+import { useEffect, useState } from "react"
+import type { FC } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import useLocale from "@/hooks/useLocale"
+import type { ReviewsType } from "@/types/reviewTypes"
+import Review from "./Review"
 
 export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
-  const router = useRouter();
-  const i18n = useLocale();
-  const [revs, setRevs] = useState(reviews);
+  const router = useRouter()
+  const i18n = useLocale()
+  const [revs, setRevs] = useState(reviews)
 
   const commentPageId = (id) => {
-    router.push(`?commentId=${id}`, "", { shallow: true });
-  };
+    router.push(`?commentId=${id}`, "", { shallow: true })
+  }
 
   useEffect(() => {
     if (router.query.commentId) {
-      setRevs(revs.filter((curr) => String(curr.id) === router.query.commentId));
+      setRevs(revs.filter((curr) => String(curr.id) === router.query.commentId))
     } else {
-      setRevs(reviews);
+      setRevs(reviews)
     }
-  }, [router.query.commentId]);
+  }, [router.query.commentId])
 
   return (
     <>
@@ -50,5 +50,5 @@ export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
         )}
       </div>
     </>
-  );
-};
+  )
+}

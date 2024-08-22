@@ -1,15 +1,12 @@
-import { FC, ReactNode } from "react";
-import Header from "./Header";
-import Footer from "./footer";
-import Head from "next/head";
-import useLocale from "@/hooks/useLocale";
-
-type LayoutProps = {
-  children: ReactNode;
-};
+import type { FC } from "react"
+import Header from "../Header"
+import Footer from "../footer"
+import Head from "next/head"
+import useLocale from "@/hooks/useLocale"
+import { LayoutProps } from "./types"
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <Head>
@@ -23,7 +20,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

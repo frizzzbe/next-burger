@@ -1,10 +1,10 @@
-import UserProfile from "@/modules/userProfile";
-import type { FC } from "react";
-import useLocale from "@/hooks/useLocale";
-import Head from "next/head";
+import UserProfile from "@/modules/userProfile"
+import type { FC } from "react"
+import useLocale from "@/hooks/useLocale"
+import Head from "next/head"
 
 const Login: FC = () => {
-  const i18n = useLocale();
+  const i18n = useLocale()
   return (
     <>
       <Head>
@@ -15,7 +15,7 @@ const Login: FC = () => {
         <UserProfile />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

@@ -1,6 +1,6 @@
-import Image from "next/image";
-import type { BurgerType } from "@/types/burgerTypes";
-import style from "./Burger.module.css";
+import Image from "next/image"
+import type { BurgerType } from "@/types/burgerTypes"
+import style from "./Burger.module.css"
 
 const Burger = ({ burger }: { burger: BurgerType }) => {
   return (
@@ -13,7 +13,7 @@ const Burger = ({ burger }: { burger: BurgerType }) => {
         <p>{burger.desc}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Burger;
+export default Burger
