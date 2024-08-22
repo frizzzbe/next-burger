@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import type { FC } from "react";
 import Image from "next/image";
 import type { UserType } from "@/types/userTypes";
 import useLocale from "@/hooks/useLocale";

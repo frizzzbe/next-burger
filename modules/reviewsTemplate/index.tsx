@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { useEffect, useState } from "react";
+import type { FC } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useLocale from "@/hooks/useLocale";
-import { useEffect, useState } from "react";
 import type { ReviewsType } from "@/types/reviewTypes";
 import Review from "./Review";
 

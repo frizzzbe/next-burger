@@ -1,11 +1,11 @@
 export type BurgerType = {
-  name: string,
-  image: string,
-  desc: string,
-  price: number,
-  id: string
-}
+  name: string;
+  image: string;
+  desc: string;
+  price: number;
+  id: string;
+};
 
 export type BurgersType = {
-  burgers: BurgerType[]
-}
+  burgers: BurgerType[];
+};

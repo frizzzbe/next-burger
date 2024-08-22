@@ -8,8 +8,8 @@ import type { UsersType } from "@/types/userTypes";
 
 const sortByValue = (data, value) => {
   return data.sort((a, b) => {
-    let val1 = typeof a[value] === "string" ? a[value].toUpperCase() : a[value];
-    let val2 = typeof b[value] === "string" ? b[value].toUpperCase() : b[value];
+    const val1 = typeof a[value] === "string" ? a[value].toUpperCase() : a[value];
+    const val2 = typeof b[value] === "string" ? b[value].toUpperCase() : b[value];
     return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
   });
 };
@@ -47,7 +47,7 @@ const Users: FC<UsersType> = ({
   }, [selectValue]);
 
   useEffect(() => {
-    if (typeof window) {
+    if (typeof window === "undefined") {
       if (hasCookie("filter")) {
         setSelectValue(getCookie("filter"));
       } else {
