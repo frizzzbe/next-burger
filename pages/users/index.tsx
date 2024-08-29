@@ -5,6 +5,7 @@ import { getCookie, hasCookie, setCookie } from "cookies-next"
 import useLocale from "@/hooks/useLocale"
 import UsersTemplate from "@/modules/usersTemplate"
 import type { UsersType } from "@/types/userTypes"
+import { ProfileAPI } from "../api/ProfileAPI"
 
 const sortByValue = (data, value) => {
   return data.sort((a, b) => {
@@ -15,12 +16,11 @@ const sortByValue = (data, value) => {
 }
 
 export const getServerSideProps = (async () => {
-  const response = await fetch("https://reqres.in/api/users?per_page=12")
-  const data = await response.json()
+  const data = await ProfileAPI.getAll()
 
   return {
     props: {
-      users: data.data,
+      users: data,
     },
   }
 }) satisfies GetServerSideProps<{

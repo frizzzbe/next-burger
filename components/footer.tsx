@@ -6,8 +6,7 @@ import { FC } from "react"
 
 const Footer: FC = () => {
   const i18n = useLocale()
-  const router = useRouter()
-  const { pathname, query, locale } = router
+  const { pathname, query, locale } = useRouter()
   const href = useCurrentLink(pathname, query)
 
   return (

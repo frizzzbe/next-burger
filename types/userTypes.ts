@@ -20,11 +20,3 @@ export type LoginStatus = {
   token?: string
   error?: string
 }
-
-export type ProfileInfo = {
-  id: number
-  email: string
-  first_name: string
-  last_name: string
-  avatar: string
-}

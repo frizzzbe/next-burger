@@ -3,7 +3,6 @@ import en from "@/locales/en"
 import ru from "@/locales/ru"
 
 export default function useLocale() {
-  const router = useRouter()
-  const { locale } = router
+  const { locale } = useRouter()
   return locale === "ru" ? ru : en
 }

@@ -1,5 +1,4 @@
-export default function useCurrentLink(pathname, query) {
-  let url = pathname
+export default function useCurrentLink(url, query) {
   for (const [key, value] of Object.entries(query)) {
     url = url.replace(`[${key}]`, value)
   }

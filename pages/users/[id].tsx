@@ -2,6 +2,7 @@ import Head from "next/head"
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from "next"
 import type { UserType } from "@/types/userTypes"
 import User from "@/modules/usersTemplate/User"
+import { ProfileAPI } from "../api/ProfileAPI"
 
 export const getStaticPaths = (async () => {
   const res = await fetch(`https://reqres.in/api/users?per_page=12`)
@@ -21,11 +22,10 @@ export const getStaticPaths = (async () => {
 
 export const getStaticProps = (async (context) => {
   const id = context.params.id
-  const res = await fetch(`https://reqres.in/api/users/${id}`)
-  const user = await res.json()
+  const data = await ProfileAPI.get(id)
 
   return {
-    props: { user: user.data },
+    props: { user: data },
   }
 }) satisfies GetStaticProps<{
   user: UserType
