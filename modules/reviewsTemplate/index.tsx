@@ -4,8 +4,8 @@ import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import useLocale from "@/hooks/useLocale"
-import type { ReviewsType } from "@/types/reviewTypes"
 import Review from "./Review"
+import type { ReviewsType } from "@/types/reviewTypes"
 
 export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
   const router = useRouter()

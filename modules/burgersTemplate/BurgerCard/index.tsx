@@ -1,7 +1,7 @@
 import Image from "next/image"
+import Link from "next/link"
 import type { BurgerType } from "@/types/burgerTypes"
 import style from "./BurgerCard.module.css"
-import Link from "next/link"
 
 const BurgerCard = ({ burger }: { burger: BurgerType }) => {
   return (

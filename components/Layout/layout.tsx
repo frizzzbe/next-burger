@@ -3,7 +3,7 @@ import Header from "../Header"
 import Footer from "../footer"
 import Head from "next/head"
 import useLocale from "@/hooks/useLocale"
-import { LayoutProps } from "./types"
+import type { LayoutProps } from "./types"
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   const i18n = useLocale()

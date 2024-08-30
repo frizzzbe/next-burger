@@ -2,9 +2,9 @@ import { useEffect, useState, type FC } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useRouter } from "next/navigation"
 import useLocale from "@/hooks/useLocale"
-import styles from "./LoginForm.module.css"
 import { LoginInputs, LoginStatus } from "@/types/userTypes"
 import { setCookie } from "cookies-next"
+import styles from "./LoginForm.module.css"
 
 const LoginForm: FC = () => {
   const router = useRouter()

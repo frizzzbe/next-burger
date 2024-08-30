@@ -1,8 +1,8 @@
 import Image from "next/image"
-import type { UserType } from "@/types/userTypes"
 import useLocale from "@/hooks/useLocale"
-import style from "./User.module.css"
 import Link from "next/link"
+import type { UserType } from "@/types/userTypes"
+import style from "./User.module.css"
 
 const User = ({ user }: { user: UserType }) => {
   const i18n = useLocale()

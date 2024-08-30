@@ -18,6 +18,7 @@ const nextConfig = {
   },
   env: {
     API_URL: "http://localhost:3000",
+    USERS_URL: "https://reqres.in/api/users",
   },
   i18n: {
     locales: ["en", "ru"],

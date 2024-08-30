@@ -1,4 +1,4 @@
-import { FC } from "react"
+import type { FC } from "react"
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next"
 import type { ReviewsType } from "@/types/reviewTypes"
 import { ReviewsTemplate } from "@/modules/reviewsTemplate"

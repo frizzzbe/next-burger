@@ -1,7 +1,7 @@
 import Home from "@/components/Home"
 import Head from "next/head"
-import { FC } from "react"
 import useLocale from "@/hooks/useLocale"
+import type { FC } from "react"
 
 const Main: FC = () => {
   const i18n = useLocale()

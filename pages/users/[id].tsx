@@ -2,13 +2,12 @@ import Head from "next/head"
 import type { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from "next"
 import type { UserType } from "@/types/userTypes"
 import User from "@/modules/usersTemplate/User"
-import { ProfileAPI } from "../api/ProfileAPI"
+import { ProfileAPI } from "@/pages/api/externalAPI"
 
 export const getStaticPaths = (async () => {
-  const res = await fetch(`https://reqres.in/api/users?per_page=12`)
-  const data = await res.json()
+  const data = await ProfileAPI.getAll()
 
-  const paths = data.data.map((user) => {
+  const paths = data.map((user) => {
     return {
       params: { id: String(user.id) },
     }

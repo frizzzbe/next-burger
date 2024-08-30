@@ -1,7 +1,7 @@
 import Image from "next/image"
+import Link from "next/link"
 import type { UserType } from "@/types/userTypes"
 import style from "./UserCard.module.css"
-import Link from "next/link"
 
 const UserCard = ({ user }: { user: UserType }) => {
   return (
