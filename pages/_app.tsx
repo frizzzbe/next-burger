@@ -1,7 +1,8 @@
 import type { AppProps } from "next/app"
 import Layout from "@/components/Layout/layout"
-import "@/styles/globals.css"
 import NextNProgress from "nextjs-progressbar"
+import { balsamiqSans } from "@/fonts"
+import "@/styles/globals.css"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         showOnShallow={true}
         options={{ showSpinner: false }}
       />
-      <Component {...pageProps} />
+      <Component className={balsamiqSans.className} {...pageProps} />
     </Layout>
   )
 }

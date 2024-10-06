@@ -16,6 +16,7 @@ export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
     router.push(`?commentId=${id}`, "", { shallow: true })
   }
 
+  // https://jsonplaceholder.typicode.com/comments?id=5
   useEffect(() => {
     if (router.query.commentId) {
       setRevs(revs.filter((curr) => String(curr.id) === router.query.commentId))

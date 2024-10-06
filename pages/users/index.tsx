@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import type { FC } from "react"
 import Head from "next/head"
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next"
 import { getCookie, hasCookie, setCookie } from "cookies-next"
@@ -28,9 +27,7 @@ export const getServerSideProps = (async () => {
   users: { props: UsersType }
 }>
 
-const Users: FC<UsersType> = ({
-  users,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Users = ({ users }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const i18n = useLocale()
   const [selectValue, setSelectValue] = useState<string>()
   const [usersList, setUsersList] = useState(users)
