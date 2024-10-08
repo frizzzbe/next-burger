@@ -1,3 +1,7 @@
 {
+  "[css]": {
+    "files.trimTrailingWhitespace": false,
+    "files.insertFinalNewline": true
+  },
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
