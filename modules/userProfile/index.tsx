@@ -1,4 +1,3 @@
-import type { FC } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { getCookie } from "cookies-next"
@@ -6,7 +5,7 @@ import useLocale from "@/hooks/useLocale"
 import { ProfileAPI } from "@/pages/api/externalAPI"
 import styles from "./UserProfile.module.css"
 
-const UserProfile: FC = () => {
+const UserProfile = () => {
   const i18n = useLocale()
   const userId = getCookie("userId")
   const { data, error, isLoading } = ProfileAPI.getSWR(userId)

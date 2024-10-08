@@ -1,9 +1,8 @@
 import Head from "next/head"
 import LoginForm from "@/modules/loginForm"
 import useLocale from "@/hooks/useLocale"
-import type { FC } from "react"
 
-const Login: FC = () => {
+const Login = () => {
   const i18n = useLocale()
   return (
     <>

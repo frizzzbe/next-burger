@@ -1,11 +1,11 @@
-import { useEffect, useState, type FC } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import useLocale from "@/hooks/useLocale"
 import Link from "next/link"
 import { deleteCookie, hasCookie } from "cookies-next"
 import styles from "./ProfileLink.module.css"
 
-const ProfileLink: FC = () => {
+const ProfileLink = () => {
   const router = useRouter()
   const i18n = useLocale()
   const [isAuth, setIsAuth] = useState(false)

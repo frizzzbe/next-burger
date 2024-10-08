@@ -1,10 +1,9 @@
-import type { FC } from "react"
 import Head from "next/head"
 import useLocale from "@/hooks/useLocale"
 import BurgerCard from "./BurgerCard"
 import type { BurgersType } from "@/types/burgerTypes"
 
-const BurgersTemplate: FC<BurgersType> = ({ burgers }: BurgersType) => {
+const BurgersTemplate = ({ burgers }: BurgersType) => {
   const i18n = useLocale()
   return (
     <>

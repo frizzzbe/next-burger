@@ -1,7 +1,6 @@
-import type { FC } from "react"
 import useLocale from "@/hooks/useLocale"
 
-const About: FC = () => {
+const About = () => {
   const i18n = useLocale()
   return (
     <div>

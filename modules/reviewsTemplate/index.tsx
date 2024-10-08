@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import type { FC } from "react"
 import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -7,7 +6,7 @@ import useLocale from "@/hooks/useLocale"
 import Review from "./Review"
 import type { ReviewsType } from "@/types/reviewTypes"
 
-export const ReviewsTemplate: FC<ReviewsType> = ({ reviews }: ReviewsType) => {
+export const ReviewsTemplate = ({ reviews }: ReviewsType) => {
   const router = useRouter()
   const i18n = useLocale()
   const [revs, setRevs] = useState(reviews)

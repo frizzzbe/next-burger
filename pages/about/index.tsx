@@ -1,9 +1,8 @@
 import Head from "next/head"
-import { FC } from "react"
 import About from "@/components/about"
 import useLocale from "@/hooks/useLocale"
 
-const AboutPage: FC = () => {
+const AboutPage = () => {
   const i18n = useLocale()
   return (
     <>

@@ -1,4 +1,3 @@
-import type { FC } from "react"
 import Header from "../Header"
 import Footer from "../footer"
 import Head from "next/head"
@@ -7,7 +6,7 @@ import cn from "classnames"
 import { balsamiqSans } from "@/fonts"
 import type { LayoutProps } from "./types"
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout = ({ children }: LayoutProps) => {
   const i18n = useLocale()
   return (
     <>

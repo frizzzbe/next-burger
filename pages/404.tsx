@@ -1,8 +1,7 @@
 import Link from "next/link"
-import type { FC } from "react"
 import useLocale from "@/hooks/useLocale"
 
-const NotFoundPage: FC = () => {
+const NotFoundPage = () => {
   const i18n = useLocale()
   return (
     <div className="not-found">

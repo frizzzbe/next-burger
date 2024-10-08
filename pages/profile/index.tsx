@@ -1,9 +1,8 @@
 import UserProfile from "@/modules/userProfile"
 import useLocale from "@/hooks/useLocale"
 import Head from "next/head"
-import type { FC } from "react"
 
-const Login: FC = () => {
+const Login = () => {
   const i18n = useLocale()
   return (
     <>
