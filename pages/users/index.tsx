@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import Head from "next/head"
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next"
 import { getCookie, hasCookie, setCookie } from "cookies-next"
 import useLocale from "@/hooks/useLocale"
 import UsersTemplate from "@/modules/usersTemplate"
-import type { UsersType } from "@/types/userTypes"
+import type { UsersTypeProps } from "@/types/userTypes"
 import { ProfileAPI } from "@/pages/api/externalAPI"
 
 const sortByValue = (data, value) => {
@@ -15,19 +14,16 @@ const sortByValue = (data, value) => {
   })
 }
 
-export const getServerSideProps = (async () => {
-  const data = await ProfileAPI.getAll()
-
+export const getServerSideProps = async () => {
+  const data: UsersTypeProps = await ProfileAPI.getAll()
   return {
     props: {
       users: data,
     },
   }
-}) satisfies GetServerSideProps<{
-  users: { props: UsersType }
-}>
+}
 
-const Users = ({ users }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Users = ({ users }: UsersTypeProps) => {
   const i18n = useLocale()
   const [selectValue, setSelectValue] = useState<string>()
   const [usersList, setUsersList] = useState(users)

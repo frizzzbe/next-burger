@@ -9,3 +9,7 @@ export type BurgerType = {
 export type BurgersType = {
   burgers: BurgerType[]
 }
+
+export type BurgerTypeProps = {
+  burger: BurgerType
+}

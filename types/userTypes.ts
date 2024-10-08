@@ -6,7 +6,9 @@ export type UserType = {
   avatar: string
 }
 
-export type UsersType = {
+export type UserTypeProps = { user: UserType }
+
+export type UsersTypeProps = {
   users: UserType[]
 }
 
