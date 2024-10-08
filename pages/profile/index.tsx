@@ -1,6 +1,6 @@
-import UserProfile from "@/modules/userProfile"
-import useLocale from "@/hooks/useLocale"
 import Head from "next/head"
+import { UserProfile } from "@/modules/userProfile"
+import { useLocale } from "@/hooks/useLocale"
 
 const Login = () => {
   const i18n = useLocale()

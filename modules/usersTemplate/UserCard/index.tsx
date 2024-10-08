@@ -1,9 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import type { UserType } from "@/types/userTypes"
+import type { UserTypeProps } from "@/types/userTypes"
 import style from "./UserCard.module.css"
 
-const UserCard = ({ user }: { user: UserType }) => {
+export const UserCard = ({ user }: UserTypeProps) => {
   return (
     <Link href={`/users/${user.id}`} key={user.id} className={style.userCard}>
       <div className={style.imageContainer}>
@@ -19,5 +19,3 @@ const UserCard = ({ user }: { user: UserType }) => {
     </Link>
   )
 }
-
-export default UserCard

@@ -1,10 +1,10 @@
 import Image from "next/image"
-import useLocale from "@/hooks/useLocale"
+import { useLocale } from "@/hooks/useLocale"
 import Link from "next/link"
-import type { UserType } from "@/types/userTypes"
+import type { UserTypeProps } from "@/types/userTypes"
 import style from "./User.module.css"
 
-const User = ({ user }: { user: UserType }) => {
+export const User = ({ user }: UserTypeProps) => {
   const i18n = useLocale()
 
   return (
@@ -37,5 +37,3 @@ const User = ({ user }: { user: UserType }) => {
     </>
   )
 }
-
-export default User

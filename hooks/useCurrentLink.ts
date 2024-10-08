@@ -1,4 +1,4 @@
-export default function useCurrentLink(url, query) {
+export const useCurrentLink = (url, query) => {
   for (const [key, value] of Object.entries(query)) {
     url = url.replace(`[${key}]`, value)
   }

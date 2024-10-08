@@ -1,6 +1,6 @@
-import Home from "@/components/Home"
 import Head from "next/head"
-import useLocale from "@/hooks/useLocale"
+import { Home } from "@/components/Home"
+import { useLocale } from "@/hooks/useLocale"
 
 const Main = () => {
   const i18n = useLocale()

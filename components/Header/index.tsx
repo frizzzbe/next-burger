@@ -1,11 +1,11 @@
 import Link from "next/link"
-import { SiBurgerking } from "react-icons/si"
 import { usePathname } from "next/navigation"
-import useLocale from "@/hooks/useLocale"
+import { SiBurgerking } from "react-icons/si"
+import { useLocale } from "@/hooks/useLocale"
+import { ProfileLink } from "@/components/ProfileLink"
 import styles from "./Header.module.css"
-import ProfileLink from "@/components/ProfileLink"
 
-const Header = () => {
+export const Header = () => {
   const pathname = usePathname()
   const i18n = useLocale()
 
@@ -34,5 +34,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

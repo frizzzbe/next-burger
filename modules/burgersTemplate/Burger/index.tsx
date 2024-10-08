@@ -1,8 +1,8 @@
 import Image from "next/image"
-import type { BurgerType } from "@/types/burgerTypes"
+import type { BurgerTypeProps } from "@/types/burgerTypes"
 import style from "./Burger.module.css"
 
-const Burger = ({ burger }: { burger: BurgerType }) => {
+export const Burger = ({ burger }: BurgerTypeProps) => {
   return (
     <div className={style.singleBurger}>
       <h1>{burger.name}</h1>
@@ -15,5 +15,3 @@ const Burger = ({ burger }: { burger: BurgerType }) => {
     </div>
   )
 }
-
-export default Burger

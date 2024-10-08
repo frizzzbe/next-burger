@@ -1,6 +1,6 @@
 import Head from "next/head"
-import About from "@/components/about"
-import useLocale from "@/hooks/useLocale"
+import { About } from "@/components/about"
+import { useLocale } from "@/hooks/useLocale"
 
 const AboutPage = () => {
   const i18n = useLocale()

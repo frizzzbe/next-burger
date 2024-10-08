@@ -1,6 +1,6 @@
 import Head from "next/head"
+import { Burger } from "@/modules/burgersTemplate/Burger"
 import type { BurgerType, BurgerTypeProps } from "@/types/burgerTypes"
-import Burger from "@/modules/burgersTemplate/Burger"
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${process.env.API_URL}/api/burgers`)

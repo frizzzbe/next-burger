@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import useLocale from "@/hooks/useLocale"
-import Review from "./Review"
+import { useLocale } from "@/hooks/useLocale"
+import { Review } from "./Review"
 import type { ReviewsType } from "@/types/reviewTypes"
 
 export const ReviewsTemplate = ({ reviews }: ReviewsType) => {

@@ -1,6 +1,6 @@
 import Head from "next/head"
-import LoginForm from "@/modules/loginForm"
-import useLocale from "@/hooks/useLocale"
+import { LoginForm } from "@/modules/loginForm"
+import { useLocale } from "@/hooks/useLocale"
 
 const Login = () => {
   const i18n = useLocale()

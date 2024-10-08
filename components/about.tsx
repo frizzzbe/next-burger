@@ -1,6 +1,6 @@
-import useLocale from "@/hooks/useLocale"
+import { useLocale } from "@/hooks/useLocale"
 
-const About = () => {
+export const About = () => {
   const i18n = useLocale()
   return (
     <div>
@@ -11,5 +11,3 @@ const About = () => {
     </div>
   )
 }
-
-export default About

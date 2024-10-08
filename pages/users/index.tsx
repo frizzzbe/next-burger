@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import Head from "next/head"
 import { getCookie, hasCookie, setCookie } from "cookies-next"
-import useLocale from "@/hooks/useLocale"
-import UsersTemplate from "@/modules/usersTemplate"
-import type { UsersTypeProps } from "@/types/userTypes"
+import Head from "next/head"
+import { useLocale } from "@/hooks/useLocale"
+import { UsersTemplate } from "@/modules/usersTemplate"
 import { ProfileAPI } from "@/pages/api/externalAPI"
+import type { UsersTypeProps } from "@/types/userTypes"
 
 const sortByValue = (data, value) => {
   return data.sort((a, b) => {

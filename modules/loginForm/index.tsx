@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { useForm, SubmitHandler } from "react-hook-form"
 import { useRouter } from "next/navigation"
-import useLocale from "@/hooks/useLocale"
-import { LoginInputs, LoginStatus } from "@/types/userTypes"
 import { setCookie } from "cookies-next"
+import { useForm, SubmitHandler } from "react-hook-form"
+import { useLocale } from "@/hooks/useLocale"
+import type { LoginInputs, LoginStatus } from "@/types/userTypes"
 import styles from "./LoginForm.module.css"
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const router = useRouter()
   const i18n = useLocale()
   const { register, handleSubmit, setValue } = useForm<LoginInputs>({})
@@ -51,5 +51,3 @@ const LoginForm = () => {
     </form>
   )
 }
-
-export default LoginForm

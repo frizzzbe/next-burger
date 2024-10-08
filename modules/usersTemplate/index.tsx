@@ -1,7 +1,7 @@
 import { useId } from "react"
-import UserCard from "./UserCard"
-import useLocale from "@/hooks/useLocale"
 import Select, { components, ControlProps, StylesConfig } from "react-select"
+import { UserCard } from "./UserCard"
+import { useLocale } from "@/hooks/useLocale"
 import type { CustomSelectPropsTS, FilterOption, UserProps } from "./types"
 
 const CustomSelectProps = ({ selectValue, setSelectValue }: CustomSelectPropsTS) => {
@@ -50,7 +50,7 @@ const CustomSelectProps = ({ selectValue, setSelectValue }: CustomSelectPropsTS)
   )
 }
 
-const UsersTemplate = ({ users, selectValue, setSelectValue }: UserProps) => {
+export const UsersTemplate = ({ users, selectValue, setSelectValue }: UserProps) => {
   return (
     <>
       <div>
@@ -62,5 +62,3 @@ const UsersTemplate = ({ users, selectValue, setSelectValue }: UserProps) => {
     </>
   )
 }
-
-export default UsersTemplate

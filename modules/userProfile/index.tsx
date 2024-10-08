@@ -1,11 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { getCookie } from "cookies-next"
-import useLocale from "@/hooks/useLocale"
+import { useLocale } from "@/hooks/useLocale"
 import { ProfileAPI } from "@/pages/api/externalAPI"
 import styles from "./UserProfile.module.css"
 
-const UserProfile = () => {
+export const UserProfile = () => {
   const i18n = useLocale()
   const userId = getCookie("userId")
   const { data, error, isLoading } = ProfileAPI.getSWR(userId)
@@ -33,5 +33,3 @@ const UserProfile = () => {
       </>
     )
 }
-
-export default UserProfile

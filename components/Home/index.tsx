@@ -1,9 +1,9 @@
-import useLocale from "@/hooks/useLocale"
 import Image from "next/image"
 import Link from "next/link"
+import { useLocale } from "@/hooks/useLocale"
 import styles from "./Home.module.css"
 
-const Home = () => {
+export const Home = () => {
   const i18n = useLocale()
   return (
     <>
@@ -19,5 +19,3 @@ const Home = () => {
     </>
   )
 }
-
-export default Home

@@ -1,9 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import type { BurgerType } from "@/types/burgerTypes"
+import type { BurgerTypeProps } from "@/types/burgerTypes"
 import style from "./BurgerCard.module.css"
 
-const BurgerCard = ({ burger }: { burger: BurgerType }) => {
+export const BurgerCard = ({ burger }: BurgerTypeProps) => {
   return (
     <Link href={`/burgers/${burger.id}`} key={burger.id} className={style.burgerCard}>
       <div className={style.imageContainer}>
@@ -16,5 +16,3 @@ const BurgerCard = ({ burger }: { burger: BurgerType }) => {
     </Link>
   )
 }
-
-export default BurgerCard

@@ -1,12 +1,10 @@
-import style from "./Review.module.css"
 import type { PropsType } from "./types"
+import style from "./Review.module.css"
 
-const Review = ({ res, onClick }: PropsType) => {
+export const Review = ({ res, onClick }: PropsType) => {
   return (
     <li className={style.review} onClick={onClick}>
       {res.id + ". " + res.body}
     </li>
   )
 }
-
-export default Review

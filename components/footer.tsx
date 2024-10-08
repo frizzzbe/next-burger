@@ -1,9 +1,9 @@
-import useLocale from "@/hooks/useLocale"
-import useCurrentLink from "@/hooks/useCurrentLink"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useLocale } from "@/hooks/useLocale"
+import { useCurrentLink } from "@/hooks/useCurrentLink"
 
-const Footer = () => {
+export const Footer = () => {
   const i18n = useLocale()
   const { pathname, query, locale } = useRouter()
   const href = useCurrentLink(pathname, query)
@@ -17,5 +17,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

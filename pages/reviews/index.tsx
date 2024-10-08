@@ -1,5 +1,5 @@
-import type { ReviewsType } from "@/types/reviewTypes"
 import { ReviewsTemplate } from "@/modules/reviewsTemplate"
+import type { ReviewsType } from "@/types/reviewTypes"
 
 export const getServerSideProps = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/comments")

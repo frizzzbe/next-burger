@@ -1,5 +1,5 @@
 import Link from "next/link"
-import useLocale from "@/hooks/useLocale"
+import { useLocale } from "@/hooks/useLocale"
 
 const NotFoundPage = () => {
   const i18n = useLocale()

@@ -1,12 +1,12 @@
-import Header from "../Header"
-import Footer from "../footer"
 import Head from "next/head"
-import useLocale from "@/hooks/useLocale"
-import cn from "classnames"
+import { useLocale } from "@/hooks/useLocale"
 import { balsamiqSans } from "@/fonts"
+import cn from "classnames"
+import { Header } from "../Header"
+import { Footer } from "../footer"
 import type { LayoutProps } from "./types"
 
-const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   const i18n = useLocale()
   return (
     <>
@@ -23,5 +23,3 @@ const Layout = ({ children }: LayoutProps) => {
     </>
   )
 }
-
-export default Layout
