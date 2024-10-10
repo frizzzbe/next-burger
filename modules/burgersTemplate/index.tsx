@@ -11,7 +11,7 @@ export const BurgersTemplate = ({ burgers }: BurgersType) => {
         <title>{i18n.mainTitle}</title>
       </Head>
       <div>
-        <h1>{i18n.mainTitle}</h1>
+        <h2>{i18n.burgersMenu}</h2>
         {burgers.map((burger) => (
           <BurgerCard key={burger.id} burger={burger} />
         ))}

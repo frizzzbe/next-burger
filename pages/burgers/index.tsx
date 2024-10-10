@@ -1,17 +1,23 @@
 import { BurgersTemplate } from "@/modules/burgersTemplate"
-import type { BurgersType } from "@/types/burgerTypes"
+import type { BurgersTypeProps } from "@/types/burgerTypes"
+import { getBurgers } from "@/helpers/getBurgers"
 
 export const getStaticProps = async ({ locale }) => {
-  const res = await fetch(`${process.env.API_URL}/api/burgers?locale=${locale}`)
-  const data = await res.json()
+  try {
+    const data = await getBurgers(locale)
 
-  return {
-    props: { burgers: data.items },
+    return {
+      props: { burgers: data, error: false },
+    }
+  } catch (error) {
+    return {
+      props: { burgers: null, error: true },
+    }
   }
 }
 
-const Burgers = ({ burgers }: BurgersType) => {
-  return <BurgersTemplate burgers={burgers} />
+const Burgers = ({ burgers, error }: BurgersTypeProps) => {
+  return error ? <p>Не удалось загрузить данные.</p> : <BurgersTemplate burgers={burgers} />
 }
 
 export default Burgers

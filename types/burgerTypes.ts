@@ -10,6 +10,11 @@ export type BurgersType = {
   burgers: BurgerType[]
 }
 
+export type BurgersTypeProps = {
+  burgers: BurgerType[]
+  error?: boolean
+}
+
 export type BurgerTypeProps = {
   burger: BurgerType
 }

@@ -15,6 +15,7 @@ export default {
   menuLogout: "Logout",
   menuProfile: "Profile",
   allBurgers: `All burgers`,
+  burgersMenu: `Menu`,
   aboutP1: `Fatty burgers are good old burgers according to the classic recipe, the right size and for a reasonable price.`,
   aboutP2: `They are prepared in the American, Mexican and Italian manner, without regret no sauce, no filling.`,
   aboutP3: `For those who are pretty hungry, there is an immense "Fattest burger" with five beef patties, corn chips and cheese.`,

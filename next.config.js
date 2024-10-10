@@ -3,6 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    domains: ["mokky.dev"],
     remotePatterns: [
       {
         protocol: "http",
@@ -12,13 +13,17 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "reqres.in",
-        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "mokky.dev",
       },
     ],
   },
   env: {
     API_URL: "http://localhost:3000",
     USERS_URL: "https://reqres.in/api/users",
+    MOKKY_URL: "https://3290828d2c360809.mokky.dev",
   },
   i18n: {
     locales: ["en", "ru"],

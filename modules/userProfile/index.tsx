@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { getCookie } from "cookies-next"
 import { useLocale } from "@/hooks/useLocale"
-import { ProfileAPI } from "@/pages/api/externalAPI"
+import { ProfileAPI } from "@/helpers/externalAPI"
 import styles from "./UserProfile.module.css"
 
 export const UserProfile = () => {

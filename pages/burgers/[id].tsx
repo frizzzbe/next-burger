@@ -20,6 +20,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { id, locale } = context.params
+  console.log("locale:", locale)
   const res = await fetch(`${process.env.API_URL}/api/burgers/${id}?locale=${locale}`)
   const burger: BurgerType = await res.json()
 

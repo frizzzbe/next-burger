@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { User } from "@/modules/usersTemplate/User"
-import { ProfileAPI } from "@/pages/api/externalAPI"
+import { ProfileAPI } from "@/helpers/externalAPI"
 import type { UserTypeProps } from "@/types/userTypes"
 
 export const getStaticPaths = async () => {
