@@ -8,9 +8,9 @@ const fetcher = (url: string, options = {}) =>
       throw new Error(error)
     })
 
-export const ProfileAPI = {
+export const profileAPI = {
   get: (userId) => fetcher(`${process.env.USERS_URL}/?id=${userId}`),
   getAll: () => fetcher(`${process.env.USERS_URL}?per_page=12`),
-  getSWR: (userId) => useSWR(`${process.env.USERS_URL}/?id=${userId}`, fetcher),
-  getAllSWR: () => useSWR(`${process.env.USERS_URL}?per_page=12`, fetcher),
+  useGetSWR: (userId) => useSWR(`${process.env.USERS_URL}/?id=${userId}`, fetcher),
+  useGetAllSWR: () => useSWR(`${process.env.USERS_URL}?per_page=12`, fetcher),
 }

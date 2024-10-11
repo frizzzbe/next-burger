@@ -3,7 +3,7 @@ import { getCookie, hasCookie, setCookie } from "cookies-next"
 import Head from "next/head"
 import { useLocale } from "@/hooks/useLocale"
 import { UsersTemplate } from "@/modules/usersTemplate"
-import { ProfileAPI } from "@/helpers/externalAPI"
+import { profileAPI } from "@/helpers/externalAPI"
 import type { UsersTypeProps } from "@/types/userTypes"
 
 const sortByValue = (data, value) => {
@@ -15,7 +15,7 @@ const sortByValue = (data, value) => {
 }
 
 export const getServerSideProps = async () => {
-  const data: UsersTypeProps = await ProfileAPI.getAll()
+  const data: UsersTypeProps = await profileAPI.getAll()
   return {
     props: {
       users: data,

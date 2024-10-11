@@ -1,4 +1,4 @@
-export default {
+export const ru = {
   mainTitle: "Супер бургеры",
   pageDescription: "Супер бургеры по лучшим рецептам от шефа",
   pageAboutDescription: "Супер бургеры по лучшим рецептам амазонии",

@@ -1,17 +1,16 @@
 import Head from "next/head"
 import { Burger } from "@/modules/burgersTemplate/Burger"
 import type { BurgerType, BurgerTypeProps } from "@/types/burgerTypes"
+import { getBurgers } from "@/helpers/getBurgers"
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/burgers`)
-  const data = await res.json()
-  const paths = data.items.flatMap((burger) => {
+  const data = await getBurgers("")
+  const paths = data.flatMap((burger) => {
     return [
-      { params: { id: burger.id }, locale: "ru" },
       { params: { id: burger.id }, locale: "en" },
+      { params: { id: burger.id }, locale: "ru" },
     ]
   })
-
   return {
     paths,
     fallback: false,
@@ -19,13 +18,14 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
-  const { id, locale } = context.params
-  console.log("locale:", locale)
-  const res = await fetch(`${process.env.API_URL}/api/burgers/${id}?locale=${locale}`)
-  const burger: BurgerType = await res.json()
+  const { params, locale } = context
+  const burger: BurgerType = await getBurgers(locale, params.id).then((res) => res[0])
 
   return {
-    props: { burger },
+    props: {
+      burger,
+      locale,
+    },
   }
 }
 

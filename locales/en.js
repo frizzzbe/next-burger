@@ -1,4 +1,4 @@
-export default {
+export const en = {
   mainTitle: "Super burgers",
   pageDescription: "Super burgers according to the best recipes from the chef",
   pageAboutDescription: "Super burgers according to the best Amazonia recipes",

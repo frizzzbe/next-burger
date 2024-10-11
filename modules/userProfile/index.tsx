@@ -2,13 +2,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { getCookie } from "cookies-next"
 import { useLocale } from "@/hooks/useLocale"
-import { ProfileAPI } from "@/helpers/externalAPI"
+import { profileAPI } from "@/helpers/externalAPI"
 import styles from "./UserProfile.module.css"
 
 export const UserProfile = () => {
   const i18n = useLocale()
   const userId = getCookie("userId")
-  const { data, error, isLoading } = ProfileAPI.getSWR(userId)
+  const { data, error, isLoading } = profileAPI.useGetSWR(userId)
 
   if (error) return <p>{i18n.profileStatusError}</p>
 

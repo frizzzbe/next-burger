@@ -1,10 +1,10 @@
 import Head from "next/head"
 import { User } from "@/modules/usersTemplate/User"
-import { ProfileAPI } from "@/helpers/externalAPI"
+import { profileAPI } from "@/helpers/externalAPI"
 import type { UserTypeProps } from "@/types/userTypes"
 
 export const getStaticPaths = async () => {
-  const data = await ProfileAPI.getAll()
+  const data = await profileAPI.getAll()
 
   const paths = data.map((user) => {
     return {
@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id
-  const data = await ProfileAPI.get(id)
+  const data = await profileAPI.get(id)
 
   return {
     props: { user: data },
