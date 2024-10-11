@@ -3,7 +3,6 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["mokky.dev"],
     remotePatterns: [
       {
         protocol: "http",
@@ -13,6 +12,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "reqres.in",
+      },
+      {
+        protocol: "http",
+        hostname: "mokky.dev",
       },
       {
         protocol: "https",

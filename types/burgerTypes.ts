@@ -17,4 +17,5 @@ export type BurgersTypeProps = {
 
 export type BurgerTypeProps = {
   burger: BurgerType
+  error?: string
 }
