@@ -40,7 +40,7 @@ export const getStaticProps = async (context) => {
   }
 }
 
-const singleUser = ({ user }: UserTypeProps) => {
+const SingleUser = ({ user }: UserTypeProps) => {
   return (
     <>
       <Head>
@@ -53,4 +53,4 @@ const singleUser = ({ user }: UserTypeProps) => {
   )
 }
 
-export default singleUser
+export default SingleUser

@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>{i18n.mainTitle + "|" + i18n.profileTitle}</title>
+        <title>{i18n.mainTitle + " | " + i18n.profileTitle}</title>
       </Head>
       <h1>{i18n.profileHeading}: </h1>
       <div className="profileWrapper">

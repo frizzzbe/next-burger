@@ -44,7 +44,7 @@ export const getStaticProps = async (context) => {
   }
 }
 
-const singleBurger = ({ burger }: BurgerTypeProps) => {
+const SingleBurger = ({ burger }: BurgerTypeProps) => {
   return (
     <>
       <Head>
@@ -55,4 +55,4 @@ const singleBurger = ({ burger }: BurgerTypeProps) => {
   )
 }
 
-export default singleBurger
+export default SingleBurger

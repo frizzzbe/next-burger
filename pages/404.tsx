@@ -1,16 +1,22 @@
 import Link from "next/link"
 import { useLocale } from "@/hooks/useLocale"
+import Head from "next/head"
 
 const NotFoundPage = () => {
   const i18n = useLocale()
   return (
-    <div className="not-found">
-      <h1>{i18n.notFoundTitle}</h1>
-      <h2>{i18n.notFoundMessage}</h2>
-      <p>
-        {i18n.notFoundAction} <Link href="/">{i18n.notFoundLinkMain}</Link>
-      </p>
-    </div>
+    <>
+      <Head>
+        <title>{i18n.notFoundTitle}</title>
+      </Head>
+      <div className="not-found">
+        <h1>{i18n.notFoundTitle}</h1>
+        <h2>{i18n.notFoundMessage}</h2>
+        <p>
+          {i18n.notFoundAction} <Link href="/">{i18n.notFoundLinkMain}</Link>
+        </p>
+      </div>
+    </>
   )
 }
 

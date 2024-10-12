@@ -11,7 +11,6 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{i18n.mainTitle}</title>
         <meta name="description" content={i18n.pageDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

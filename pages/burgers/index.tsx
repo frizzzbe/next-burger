@@ -1,6 +1,8 @@
 import { BurgersTemplate } from "@/modules/BurgersTemplate"
 import { getBurgers } from "@/helpers/getBurgers"
 import type { BurgersTypeProps } from "@/types/burgerTypes"
+import Head from "next/head"
+import { useLocale } from "@/hooks/useLocale"
 
 export const getStaticProps = async ({ locale }) => {
   try {
@@ -16,7 +18,15 @@ export const getStaticProps = async ({ locale }) => {
 }
 
 const Burgers = ({ burgers }: BurgersTypeProps) => {
-  return <BurgersTemplate burgers={burgers} />
+  const i18n = useLocale()
+  return (
+    <>
+      <Head>
+        <title>{i18n.mainTitle + " | " + i18n.menuBurgers}</title>
+      </Head>
+      <BurgersTemplate burgers={burgers} />
+    </>
+  )
 }
 
 export default Burgers

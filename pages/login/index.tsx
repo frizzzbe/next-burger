@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>{i18n.mainTitle + "|" + i18n.loginButton}</title>
+        <title>{i18n.mainTitle + " | " + i18n.loginButton}</title>
       </Head>
       <h1>{i18n.loginTitle}</h1>
       <LoginForm />

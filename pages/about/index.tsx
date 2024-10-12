@@ -7,7 +7,7 @@ const AboutPage = () => {
   return (
     <>
       <Head>
-        <title>{i18n.mainTitle + "|" + i18n.about}</title>
+        <title>{i18n.mainTitle + " | " + i18n.about}</title>
         <meta name="description" content={i18n.pageAboutDescription} />
       </Head>
       <About />
