@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Burger } from "@/modules/burgersTemplate/Burger"
-import type { BurgerType, BurgerTypeProps } from "@/types/burgerTypes"
 import { getBurgers } from "@/helpers/getBurgers"
+import type { BurgerType, BurgerTypeProps } from "@/types/burgerTypes"
 
 export const getStaticPaths = async () => {
   try {
@@ -17,9 +17,6 @@ export const getStaticPaths = async () => {
       fallback: false,
     }
   } catch (error) {
-    console.error("Error fetching paths:", error)
-
-    // Возвращаем пустые пути, временно отключив генерацию
     return {
       paths: [],
       fallback: false,
@@ -35,24 +32,19 @@ export const getStaticProps = async (context) => {
     return {
       props: {
         burger,
-        locale,
       },
     }
   } catch (error) {
     console.error("Error fetching data:", error.message)
     return {
       props: {
-        error: error.message || "Something went wrong",
+        notFound: true,
       },
     }
   }
 }
 
-const singleBurger = ({ burger, error }: BurgerTypeProps) => {
-  if (error) {
-    return <div>{error}</div>
-  }
-
+const singleBurger = ({ burger }: BurgerTypeProps) => {
   return (
     <>
       <Head>

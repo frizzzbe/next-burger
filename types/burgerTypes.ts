@@ -12,10 +12,8 @@ export type BurgersType = {
 
 export type BurgersTypeProps = {
   burgers: BurgerType[]
-  error?: boolean
 }
 
 export type BurgerTypeProps = {
   burger: BurgerType
-  error?: string
 }

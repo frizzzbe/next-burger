@@ -10,27 +10,26 @@ export const ReviewsTemplate = ({ reviews }: ReviewsType) => {
   const router = useRouter()
   const i18n = useLocale()
   const [revs, setRevs] = useState(reviews)
+  const commentId = router.query.commentId
 
   const commentPageId = (id) => {
-    router.push(`?commentId=${id}`, "", { shallow: true })
+    router.push(`?commentId=${id}`, "", { shallow: true, locale: false })
   }
 
   // https://jsonplaceholder.typicode.com/comments?id=5
   useEffect(() => {
-    if (router.query.commentId) {
-      setRevs(revs.filter((curr) => String(curr.id) === router.query.commentId))
+    if (commentId) {
+      setRevs(revs.filter((curr) => String(curr.id) === commentId))
     } else {
       setRevs(reviews)
     }
-  }, [router.query.commentId])
+  }, [commentId])
 
   return (
     <>
       <Head>
         <title>
-          {router.query.commentId
-            ? `${i18n.mainTitle} | ${i18n.reviewTitle} №${router.query.commentId}`
-            : `${i18n.mainTitle} | ${i18n.reviewsTitle}`}
+          {i18n.mainTitle} | {commentId ? `${i18n.reviewTitle} №${commentId}` : i18n.reviewsTitle}
         </title>
       </Head>
       <div>
@@ -43,7 +42,7 @@ export const ReviewsTemplate = ({ reviews }: ReviewsType) => {
                 <Review res={res} key={res.id} onClick={() => commentPageId(res.id)} />
               ))}
         </ul>
-        {router.query.commentId && (
+        {commentId && (
           <Link href="/reviews" className="btn center">
             {i18n.reviewsAllReviews}
           </Link>

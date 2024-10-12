@@ -4,26 +4,39 @@ import { profileAPI } from "@/helpers/externalAPI"
 import type { UserTypeProps } from "@/types/userTypes"
 
 export const getStaticPaths = async () => {
-  const data = await profileAPI.getAll()
+  try {
+    const data = await profileAPI.getAll()
 
-  const paths = data.map((user) => {
+    const paths = data.map((user) => {
+      return {
+        params: { id: String(user.id) },
+      }
+    })
+
     return {
-      params: { id: String(user.id) },
+      paths,
+      fallback: false,
     }
-  })
-
-  return {
-    paths,
-    fallback: false,
+  } catch (error) {
+    return {
+      paths: [],
+      fallback: false,
+    }
   }
 }
 
 export const getStaticProps = async (context) => {
-  const id = context.params.id
-  const data = await profileAPI.get(id)
+  try {
+    const id = context.params.id
+    const data = await profileAPI.get(id)
 
-  return {
-    props: { user: data },
+    return {
+      props: { user: data },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
   }
 }
 
