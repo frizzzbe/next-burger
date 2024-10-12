@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Image from "next/image"
 import { getCookie } from "cookies-next"
 import { useLocale } from "@/hooks/useLocale"
@@ -28,7 +27,7 @@ export const UserProfile = () => {
         <div>
           <p>{data.first_name}</p>
           <p>{data.last_name}</p>
-          <Link href={`mailto:${data.email}`}>{data.email}</Link>
+          <a href={`mailto:${data.email}`}>{data.email}</a>
         </div>
       </>
     )
