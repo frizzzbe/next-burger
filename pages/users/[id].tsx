@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { User } from "@/modules/usersTemplate/User"
+import { User } from "@/modules/UsersTemplate/User"
 import { profileAPI } from "@/helpers/externalAPI"
 import type { UserTypeProps } from "@/types/userTypes"
 

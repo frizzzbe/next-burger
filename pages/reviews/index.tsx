@@ -1,4 +1,4 @@
-import { ReviewsTemplate } from "@/modules/reviewsTemplate"
+import { ReviewsTemplate } from "@/modules/ReviewsTemplate"
 import type { ReviewsType } from "@/types/reviewTypes"
 
 export const getServerSideProps = async () => {

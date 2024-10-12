@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Home } from "@/components/Home"
+import { Home } from "@/modules/Home"
 import { useLocale } from "@/hooks/useLocale"
 
 const Main = () => {
@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <>
       <Head>
-        <title>{i18n.mainTitle + "|" + i18n.main}</title>
+        <title>{i18n.mainTitle + " | " + i18n.main}</title>
       </Head>
       <Home />
     </>

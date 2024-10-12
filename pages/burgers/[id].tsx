@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Burger } from "@/modules/burgersTemplate/Burger"
+import { Burger } from "@/modules/BurgersTemplate/Burger"
 import { getBurgers } from "@/helpers/getBurgers"
 import type { BurgerType, BurgerTypeProps } from "@/types/burgerTypes"
 

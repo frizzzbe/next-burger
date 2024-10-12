@@ -1,4 +1,4 @@
-import { BurgersTemplate } from "@/modules/burgersTemplate"
+import { BurgersTemplate } from "@/modules/BurgersTemplate"
 import { getBurgers } from "@/helpers/getBurgers"
 import type { BurgersTypeProps } from "@/types/burgerTypes"
 

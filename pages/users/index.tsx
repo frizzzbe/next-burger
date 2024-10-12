@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getCookie, hasCookie, setCookie } from "cookies-next"
 import Head from "next/head"
 import { useLocale } from "@/hooks/useLocale"
-import { UsersTemplate } from "@/modules/usersTemplate"
+import { UsersTemplate } from "@/modules/UsersTemplate"
 import { profileAPI } from "@/helpers/externalAPI"
 import type { UsersTypeProps } from "@/types/userTypes"
 

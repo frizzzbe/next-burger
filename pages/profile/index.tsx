@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { UserProfile } from "@/modules/userProfile"
+import { UserProfile } from "@/modules/UserProfile"
 import { useLocale } from "@/hooks/useLocale"
 
 const Login = () => {
