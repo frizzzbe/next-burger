@@ -10,6 +10,7 @@ export type UserTypeProps = { user: UserType }
 
 export type UsersTypeProps = {
   users: UserType[]
+  filter: string
 }
 
 export type LoginInputs = {

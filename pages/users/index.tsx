@@ -1,55 +1,38 @@
 import { useEffect, useState } from "react"
-import { getCookie, hasCookie, setCookie } from "cookies-next"
+import { getCookie, setCookie } from "cookies-next"
 import Head from "next/head"
 import { useLocale } from "@/hooks/useLocale"
 import { UsersTemplate } from "@/modules/UsersTemplate"
 import { profileAPI } from "@/helpers/externalAPI"
+import { sortByValue } from "@/helpers/sortByValue"
 import type { UsersTypeProps } from "@/types/userTypes"
 
-const sortByValue = (data, value) => {
-  return data.sort((a, b) => {
-    const val1 = typeof a[value] === "string" ? a[value].toUpperCase() : a[value]
-    const val2 = typeof b[value] === "string" ? b[value].toUpperCase() : b[value]
-    return val1 < val2 ? -1 : val1 > val2 ? 1 : 0
-  })
-}
-
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req, res }) => {
   const data: UsersTypeProps = await profileAPI.getAll()
+  const filter = getCookie("filter", { req, res }) || "id"
   return {
     props: {
       users: data,
+      filter,
     },
   }
 }
 
-const Users = ({ users }: UsersTypeProps) => {
+const Users = ({ users, filter }: UsersTypeProps) => {
   const i18n = useLocale()
-  const [selectValue, setSelectValue] = useState<string>()
+  const [selectValue, setSelectValue] = useState(filter)
   const [usersList, setUsersList] = useState(users)
 
   useEffect(() => {
     const sortedArr = sortByValue(usersList, selectValue)
     setUsersList([...sortedArr])
-    if (selectValue) {
-      setCookie("filter", selectValue)
-    }
-  }, [selectValue])
-
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      if (hasCookie("filter")) {
-        setSelectValue(getCookie("filter"))
-      } else {
-        setSelectValue("id")
-      }
-    }
-  }, [])
+    setCookie("filter", selectValue)
+  }, [selectValue, usersList])
 
   return (
     <>
       <Head>
-        <title>{i18n.usersTitle}</title>
+        <title>{i18n.mainTitle + " | " + i18n.usersTitle}</title>
       </Head>
       {selectValue && (
         <UsersTemplate
