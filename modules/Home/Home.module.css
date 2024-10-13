@@ -11,6 +11,11 @@
   text-align: center;
 }
 
+.mainImage img {
+  width: 330px;
+  height: auto;
+}
+
 @media screen and (max-width: 768px) {
   .mainPage {
     font-size: 2.5em;

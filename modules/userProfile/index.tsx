@@ -15,7 +15,7 @@ export const UserProfile = () => {
 
   if (data)
     return (
-      <>
+      <div className={styles.profileWrapper}>
         <Image
           className={styles.profileImage}
           src={data.avatar}
@@ -29,6 +29,6 @@ export const UserProfile = () => {
           <p>{data.last_name}</p>
           <a href={`mailto:${data.email}`}>{data.email}</a>
         </div>
-      </>
+      </div>
     )
 }

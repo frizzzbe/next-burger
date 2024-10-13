@@ -2,7 +2,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { SiBurgerking } from "react-icons/si"
 import { useLocale } from "@/hooks/useLocale"
-import { ProfileLink } from "@/components/ProfileLink"
 import styles from "./Header.module.css"
 
 export const Header = () => {
@@ -29,7 +28,9 @@ export const Header = () => {
         <Link href="/burgers" className={pathname.includes("/burgers") ? styles.active : ""}>
           {i18n.menuBurgers}
         </Link>
-        <ProfileLink />
+        <Link href="/profile" className={styles.loginBtn}>
+          {i18n.menuProfile}
+        </Link>
       </nav>
     </header>
   )

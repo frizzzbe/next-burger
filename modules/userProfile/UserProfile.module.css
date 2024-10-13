@@ -1,3 +1,10 @@
+.profileWrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
 .profileImage {
   border-radius: 6px;
 }

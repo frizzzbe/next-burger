@@ -1,17 +1,16 @@
 .loginBtn {
   position: relative;
-  display: inline-block;
   padding: 14px 20px;
   margin: 20px auto;
-  margin-left: 15px;
-  background-color: #ffc600;
   border-radius: 13px;
   color: #000;
+  background-color: #ffc600;
   text-align: center;
   font-weight: 500;
+  cursor: pointer;
+  border: none;
 }
 
 .loginBtn:hover {
-  color: #000;
   background-color: #ffce1d;
 }
