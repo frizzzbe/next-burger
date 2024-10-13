@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useLocale } from "@/hooks/useLocale"
 import { Review } from "./Review"
@@ -16,21 +16,19 @@ export const ReviewsTemplate = ({ reviews }: ReviewsType) => {
     router.push(`?commentId=${id}`, "", { shallow: true, locale: false })
   }
 
-  // https://jsonplaceholder.typicode.com/comments?id=5
   useEffect(() => {
     if (commentId) {
       setRevs(revs.filter((curr) => String(curr.id) === commentId))
     } else {
       setRevs(reviews)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [commentId])
 
   return (
     <>
       <Head>
-        <title>
-          {i18n.mainTitle} | {commentId ? `${i18n.reviewTitle} №${commentId}` : i18n.reviewsTitle}
-        </title>
+        <title>{i18n.mainTitle + " | " + i18n.reviewsTitle}</title>
       </Head>
       <div>
         <h1>{i18n.reviews}</h1>

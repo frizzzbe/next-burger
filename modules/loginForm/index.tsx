@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { setCookie } from "cookies-next"
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -11,13 +11,6 @@ export const LoginForm = () => {
   const i18n = useLocale()
   const { register, handleSubmit, setValue } = useForm<LoginInputs>({})
   const [loginStatus, setLoginStatus] = useState<LoginStatus>({})
-
-  useEffect(() => {
-    if (loginStatus.id) {
-      setCookie("userId", loginStatus.id)
-      router.push("/profile")
-    }
-  }, [loginStatus])
 
   const setCorrectData = () => {
     setValue("email", "tracey.ramos@reqres.in")
@@ -36,7 +29,12 @@ export const LoginForm = () => {
       .then((response) => response.json())
       .then((res) => {
         setLoginStatus(res)
+        if (res.id) {
+          setCookie("userId", res.id)
+          router.push("/profile")
+        }
       })
+      .catch((err) => setLoginStatus({ error: String(err) }))
   }
 
   return (

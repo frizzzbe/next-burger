@@ -9,7 +9,7 @@ export const Home = () => {
     <>
       <h1 className={styles.mainPage}>{i18n.main}</h1>
       <div className={styles.mainImage}>
-        <Image src="/fatburger.png" width={300} height={200} alt={i18n.mainTitle} priority={true} />
+        <Image src="/fatburger.png" width={300} height={200} alt={i18n.mainTitle} />
       </div>
       <p className={styles.text}>{i18n.mainP1}</p>
       <p className={styles.text}>{i18n.mainP2}</p>
