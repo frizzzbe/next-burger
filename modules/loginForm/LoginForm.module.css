@@ -1,4 +1,6 @@
 .loginForm {
+  max-width: 400px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,14 +21,31 @@
   width: 100%;
 }
 
-.loginForm input {
+.loginForm input,
+.loginForm button {
   border: none;
-  padding: 20px;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: #fff9e2;
+}
+
+.loginForm button {
+  margin: 0;
   border-radius: 10px;
   background-color: #fff9e2;
 }
 
 .formError {
   font-size: 18px;
+  color: red;
+}
+
+.inputField {
+  width: 100%;
+}
+
+.fieldError {
+  margin: 0;
   color: red;
 }

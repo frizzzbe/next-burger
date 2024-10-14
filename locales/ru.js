@@ -36,7 +36,7 @@ export const ru = {
   usersAllUsers: "Все пользователи",
   loginButton: "Войти",
   loginTitle: "Форма для входа",
-  loginCorrectData: "Подставить корректные данные",
+  loginCorrectData: "Подставить данные",
   loginInput: "Логин",
   passwordInput: "Пароль",
   profileTitle: "Профиль",

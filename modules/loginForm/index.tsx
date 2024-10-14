@@ -1,16 +1,40 @@
-import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { setCookie } from "cookies-next"
 import { useForm, SubmitHandler } from "react-hook-form"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
 import { useLocale } from "@/hooks/useLocale"
 import type { LoginInputs, LoginStatus } from "@/types/userTypes"
 import styles from "./LoginForm.module.css"
 
+yup.setLocale({
+  string: {
+    email: "Укажите корректный емейл адрес",
+    min: ({ min }) => `Минимальная длина - ${min} символов`,
+    max: ({ max }) => `Максимальная длина - ${max} символов`,
+  },
+  mixed: {
+    required: "Это поле обязательно к заполнению",
+  },
+})
+
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(8).max(32).required(),
+})
+
 export const LoginForm = () => {
   const router = useRouter()
   const i18n = useLocale()
-  const { register, handleSubmit, setValue } = useForm<LoginInputs>({})
-  const [loginStatus, setLoginStatus] = useState<LoginStatus>({})
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    setError,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
 
   const setCorrectData = () => {
     setValue("email", "tracey.ramos@reqres.in")
@@ -26,25 +50,41 @@ export const LoginForm = () => {
 
     // согласно api регистрация пройдет только у заранее определенных пользователей из списка
     fetch("https://reqres.in/api/register", options)
-      .then((response) => response.json())
+      .then((response) => response.json() as Promise<LoginStatus>)
       .then((res) => {
-        setLoginStatus(res)
         if (res.id) {
           setCookie("userId", res.id)
           router.push("/profile")
+        } else {
+          setError("root.loginForm", {
+            type: "custom",
+            message: res.error || "Something went wrong!",
+          })
         }
       })
-      .catch((err) => setLoginStatus({ error: String(err) }))
+      .catch((err) =>
+        setError("root.loginForm", { type: "custom", message: err.message || "Server Error" }),
+      )
   }
 
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit(sendRequest)}>
-      {loginStatus.error && <span className={styles.formError}>{loginStatus.error}</span>}
-      <label htmlFor="email">{i18n.loginInput}</label>
-      <input type="text" id="email" {...register("email")} />
-      <label htmlFor="password">{i18n.passwordInput}</label>
-      <input type="password" id="password" {...register("password")} />
-      <input className="btn" type="button" value={i18n.loginCorrectData} onClick={setCorrectData} />
+      {errors.root?.loginForm && (
+        <p className={styles.formError}>{errors.root?.loginForm.message}</p>
+      )}
+      <div className={styles.inputField}>
+        <label htmlFor="email">{i18n.loginInput}</label>
+        <input type="text" id="email" {...register("email")} />
+        <p className={styles.fieldError}>{errors.email?.message}</p>
+      </div>
+      <div className={styles.inputField}>
+        <label htmlFor="password">{i18n.passwordInput}</label>
+        <input type="password" id="password" {...register("password")} />
+        <p className={styles.fieldError}>{errors.password?.message}</p>
+      </div>
+      <button className="btn" type="button" onClick={setCorrectData}>
+        {i18n.loginCorrectData}
+      </button>
       <input className="btn" type="submit" value={i18n.loginButton} />
     </form>
   )

@@ -92,6 +92,7 @@ footer {
 .btn {
   position: relative;
   display: inline-block;
+  border: none;
   padding: 14px 20px;
   margin: 20px auto;
   background-color: var(--main-orange);
