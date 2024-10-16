@@ -46,4 +46,8 @@ export const ru = {
   profileImageAlt: "Изображение профиля",
   copyright: `Все права защищены 2024 - Super burgers.`,
   changeLanguage: "Switch to English",
+  yupErrorMail: "Укажите корректный емейл адрес",
+  yupErrorMin: "Минимальное количество символов - ",
+  yupErrorMax: "Максимальное количество символов - ",
+  yupErrorRequired: "Это поле обязательно к заполнению",
 }
