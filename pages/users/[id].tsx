@@ -1,17 +1,12 @@
 import Head from "next/head"
 import { User } from "@/modules/UsersTemplate/User"
-import { profileAPI } from "@/helpers/externalAPI"
-import type { UserTypeProps } from "@/types/userTypes"
+import { axiosGet } from "@/helpers/axiosGet"
+import type { UserTypeProps, UserType } from "@/types/userTypes"
 
 export const getStaticPaths = async () => {
   try {
-    const data = await profileAPI.getAll()
-    const paths = data.map((user) => {
-      return {
-        params: { id: String(user.id) },
-      }
-    })
-
+    const { data } = await axiosGet(`${process.env.USERS_URL}?per_page=12`)
+    const paths = data.map((user) => ({ params: { id: String(user.id) } }))
     return {
       paths,
       fallback: false,
@@ -27,7 +22,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   try {
     const id = context.params.id
-    const data = await profileAPI.get(id)
+    const { data }: { data: UserType } = await axiosGet(`${process.env.USERS_URL}/?id=${id}`)
 
     return {
       props: { user: data },
