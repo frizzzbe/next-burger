@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useLocale } from "@/hooks/useLocale"
+import useSWR from "swr"
 import { Review } from "./Review"
-import type { ReviewsType } from "@/types/reviewTypes"
+import type { ReviewType } from "@/types/reviewTypes"
 
-export const ReviewsTemplate = ({ reviews }: ReviewsType) => {
-  const router = useRouter()
+const fetcher = (url) =>
+  fetch(url)
+    .then((r) => r.json())
+    .catch((error) => {
+      throw new Error(error)
+    })
+
+export const ReviewsTemplate = () => {
   const i18n = useLocale()
-  const [revs, setRevs] = useState(reviews)
-  const commentId = router.query.commentId
+  const { commentId } = useRouter().query
+  const {
+    data: reviews,
+    error,
+    isLoading,
+  } = useSWR<ReviewType[]>(
+    `https://jsonplaceholder.typicode.com/comments${commentId ? `?id=${commentId}` : ""}`,
+    fetcher,
+  )
 
-  const commentPageId = (id) => {
-    router.push(`?commentId=${id}`, "", { shallow: true, locale: false })
-  }
-
-  useEffect(() => {
-    if (commentId) {
-      setRevs(revs.filter((curr) => String(curr.id) === commentId))
-    } else {
-      setRevs(reviews)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [commentId])
-
+  if (isLoading) return "загрузка..."
+  if (error) return "ошибка..."
   return (
     <>
       <Head>
@@ -33,12 +35,11 @@ export const ReviewsTemplate = ({ reviews }: ReviewsType) => {
       <div>
         <h1>{i18n.reviews}</h1>
         <ul className="reviews">
-          {!!revs.length &&
-            revs
-              .slice(0, 20)
-              .map((res) => (
-                <Review res={res} key={res.id} onClick={() => commentPageId(res.id)} />
-              ))}
+          {reviews.length ? (
+            reviews.slice(0, 20).map((res) => <Review key={res.id} {...res} />)
+          ) : (
+            <p>Отзывы не найдены</p>
+          )}
         </ul>
         {commentId && (
           <Link href="/reviews" className="btn center">

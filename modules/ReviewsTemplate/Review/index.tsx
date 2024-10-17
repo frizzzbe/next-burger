@@ -1,10 +1,11 @@
-import type { PropsType } from "./types"
+import Link from "next/link"
+import type { ReviewType } from "@/types/reviewTypes"
 import style from "./Review.module.css"
 
-export const Review = ({ res, onClick }: PropsType) => {
+export const Review = ({ id, body }: ReviewType) => {
   return (
-    <li className={style.review} onClick={onClick}>
-      {res.id + ". " + res.body}
-    </li>
+    <Link className={style.review} href={`?commentId=${id}`} locale={false}>
+      {id + ". " + body}
+    </Link>
   )
 }

@@ -1,7 +1,7 @@
 import useSWR from "swr"
 
-const fetcher = (url: string, options = {}) =>
-  fetch(url, options)
+const fetcher = (url: string) =>
+  fetch(url)
     .then((res) => res.json())
     .then((json) => json.data)
     .catch((error) => {

@@ -6,7 +6,6 @@ import type { UserTypeProps } from "@/types/userTypes"
 export const getStaticPaths = async () => {
   try {
     const data = await profileAPI.getAll()
-
     const paths = data.map((user) => {
       return {
         params: { id: String(user.id) },
