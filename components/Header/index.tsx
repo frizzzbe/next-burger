@@ -5,27 +5,33 @@ import { useLocale } from "@/hooks/useLocale"
 import styles from "./Header.module.css"
 
 export const Header = () => {
-  const pathname = usePathname()
   const i18n = useLocale()
+  const pathname = usePathname()
+  const isActive = (url) => {
+    if ((pathname === "/" && url === "/") || (pathname.startsWith(url) && url !== "/")) {
+      return styles.active
+    }
+    return ""
+  }
 
   return (
     <header>
       <SiBurgerking className={styles.mainSvg} />
       <h1 className={styles.mainTitle}>{i18n.mainTitle}</h1>
       <nav>
-        <Link href="/" className={pathname == "/" ? styles.active : ""}>
+        <Link href="/" className={isActive("/")}>
           {i18n.menuHome}
         </Link>
-        <Link href="/about" className={pathname == "/about" ? styles.active : ""}>
+        <Link href="/about" className={isActive("/about")}>
           {i18n.menuAbout}
         </Link>
-        <Link href="/reviews" className={pathname == "/reviews" ? styles.active : ""}>
+        <Link href="/reviews" className={isActive("/reviews")}>
           {i18n.menuReviews}
         </Link>
-        <Link href="/users" className={pathname.includes("/users") ? styles.active : ""}>
+        <Link href="/users" className={isActive("/users")}>
           {i18n.menuUsers}
         </Link>
-        <Link href="/burgers" className={pathname.includes("/burgers") ? styles.active : ""}>
+        <Link href="/burgers" className={isActive("/burgers")}>
           {i18n.menuBurgers}
         </Link>
         <Link href="/profile" className={styles.loginBtn}>
