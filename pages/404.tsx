@@ -10,8 +10,8 @@ const NotFoundPage = () => {
         <title>{i18n.notFoundTitle}</title>
       </Head>
       <div className="not-found">
-        <h1>{i18n.notFoundTitle}</h1>
-        <h2>{i18n.notFoundMessage}</h2>
+        <h2>{i18n.notFoundTitle}</h2>
+        <p>{i18n.notFoundMessage}</p>
         <p>
           {i18n.notFoundAction} <Link href="/">{i18n.notFoundLinkMain}</Link>
         </p>

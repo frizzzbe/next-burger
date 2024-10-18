@@ -33,7 +33,7 @@ export const ReviewsTemplate = () => {
         <title>{i18n.mainTitle + " | " + i18n.reviewsTitle}</title>
       </Head>
       <div>
-        <h1>{i18n.reviews}</h1>
+        <h2>{i18n.reviews}</h2>
         <ul className="reviews">
           {reviews.length ? (
             reviews.slice(0, 20).map((res) => <Review key={res.id} {...res} />)

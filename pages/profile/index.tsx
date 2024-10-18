@@ -10,7 +10,7 @@ const Login = () => {
       <Head>
         <title>{i18n.mainTitle + " | " + i18n.profileTitle}</title>
       </Head>
-      <h1>{i18n.profileHeading}: </h1>
+      <h2>{i18n.profileHeading}: </h2>
       <div className="columnWrapper">
         <UserProfile />
         <LogoutButton />
