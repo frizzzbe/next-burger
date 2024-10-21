@@ -13,7 +13,7 @@ export const UserProfile = () => {
   const user: UserType = data?.data
 
   if (error) return <p>{i18n.profileStatusError}</p>
-  if (isLoading) return <p className={styles.loading}>{i18n.profileStatusLoading}</p>
+  if (isLoading) return <p className={styles.loading}>{i18n.statusLoading}</p>
   if (user)
     return (
       <div className={styles.profileWrapper}>

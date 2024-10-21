@@ -4,14 +4,8 @@ import { useRouter } from "next/router"
 import { useLocale } from "@/hooks/useLocale"
 import useSWR from "swr"
 import { Review } from "./Review"
+import { axiosGet } from "@/helpers/axiosGet"
 import type { ReviewType } from "@/types/reviewTypes"
-
-const fetcher = (url) =>
-  fetch(url)
-    .then((r) => r.json())
-    .catch((error) => {
-      throw new Error(error)
-    })
 
 export const ReviewsTemplate = () => {
   const i18n = useLocale()
@@ -22,11 +16,11 @@ export const ReviewsTemplate = () => {
     isLoading,
   } = useSWR<ReviewType[]>(
     `https://jsonplaceholder.typicode.com/comments${commentId ? `?id=${commentId}` : ""}`,
-    fetcher,
+    axiosGet,
   )
 
-  if (isLoading) return "загрузка..."
-  if (error) return "ошибка..."
+  if (isLoading) return <p>{i18n.statusLoading}</p>
+  if (error) return <p>{i18n.statusError}</p>
   return (
     <>
       <Head>
