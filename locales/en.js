@@ -24,7 +24,7 @@ export const en = {
   reviewTitle: "Review",
   reviewsTitle: "Reviews",
   notFoundTitle: "Oops!",
-  notFoundMessage: "There is no such page here",
+  notFoundMessage: "Something went wrong",
   notFoundAction: "Go to the",
   notFoundLinkMain: "main page",
   usersTitle: "List of users",

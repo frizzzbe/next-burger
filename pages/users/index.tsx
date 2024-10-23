@@ -8,13 +8,19 @@ import { axiosGet } from "@/helpers/axiosGet"
 import type { UsersTypeProps, UserType } from "@/types/userTypes"
 
 export const getServerSideProps = async ({ req, res }) => {
-  const { data }: { data: UserType[] } = await axiosGet(`${process.env.USERS_URL}?per_page=12`)
-  const filter = getCookie("filter", { req, res }) || "id"
-  return {
-    props: {
-      users: data,
-      filter,
-    },
+  try {
+    const { data }: { data: UserType[] } = await axiosGet(`${process.env.USERS_URL}?per_page=12`)
+    const filter = getCookie("filter", { req, res }) || "id"
+    return {
+      props: {
+        users: data,
+        filter,
+      },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
   }
 }
 

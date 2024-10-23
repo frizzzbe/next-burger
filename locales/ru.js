@@ -24,7 +24,7 @@ export const ru = {
   reviewTitle: "Отзыв",
   reviewsTitle: "Отзывы",
   notFoundTitle: "Ой!",
-  notFoundMessage: "Такой страницы здесь нет",
+  notFoundMessage: "Что-то пошло не так",
   notFoundAction: "Перейти на",
   notFoundLinkMain: "главную страницу",
   usersTitle: "Список пользователей",

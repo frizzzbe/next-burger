@@ -1,17 +1,17 @@
 import { useRouter } from "next/navigation"
 import { setCookie } from "cookies-next"
 import { useForm, SubmitHandler } from "react-hook-form"
+import axios from "axios"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useLocale } from "@/hooks/useLocale"
 import type { LoginInputs, LoginStatus } from "@/types/userTypes"
-import styles from "./LoginForm.module.css"
 import { useYUPConfig } from "./YUPchema"
+import styles from "./LoginForm.module.css"
 
 export const LoginForm = () => {
   const router = useRouter()
   const i18n = useLocale()
   const schema = useYUPConfig()
-
   const {
     register,
     handleSubmit,
@@ -29,15 +29,9 @@ export const LoginForm = () => {
   }
 
   const sendRequest: SubmitHandler<LoginInputs> = (data) => {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    }
-
-    // согласно api регистрация пройдет только у заранее определенных пользователей из списка
-    fetch("https://reqres.in/api/register", options)
-      .then((response) => response.json() as Promise<LoginStatus>)
+    axios
+      .post("https://reqres.in/api/register", data)
+      .then((response) => response.data as LoginStatus)
       .then((res) => {
         if (res.id) {
           setCookie("userId", res.id)
@@ -50,7 +44,10 @@ export const LoginForm = () => {
         }
       })
       .catch((err) =>
-        setError("root.loginForm", { type: "custom", message: err.message || "Server Error" }),
+        setError("root.loginForm", {
+          type: "custom",
+          message: err.response?.data.error || err.message || "Server Error",
+        }),
       )
   }
 
