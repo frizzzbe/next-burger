@@ -13,7 +13,7 @@ export const LogoutButton = () => {
   }
 
   return (
-    <button className={styles.loginBtn} onClick={logoutUser}>
+    <button className={styles.logoutBtn} onClick={logoutUser}>
       {i18n.menuLogout}
     </button>
   )

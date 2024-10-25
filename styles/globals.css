@@ -56,11 +56,10 @@ nav {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px 0;
+  gap: 5px 15px;
 }
 
 nav a {
-  margin-left: 15px;
   color: #2e2e2e;
   transition: color 0.1s;
   line-height: 1.1;

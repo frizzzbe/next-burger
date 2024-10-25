@@ -1,7 +1,6 @@
 import Head from "next/head"
 import { UserProfile } from "@/modules/UserProfile"
 import { useLocale } from "@/hooks/useLocale"
-import { LogoutButton } from "@/components/LogoutButton"
 
 const Login = () => {
   const i18n = useLocale()
@@ -13,7 +12,6 @@ const Login = () => {
       <h2>{i18n.profileHeading}: </h2>
       <div className="columnWrapper">
         <UserProfile />
-        <LogoutButton />
       </div>
     </>
   )

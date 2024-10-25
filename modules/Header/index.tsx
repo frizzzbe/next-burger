@@ -2,6 +2,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { SiBurgerking } from "react-icons/si"
 import { useLocale } from "@/hooks/useLocale"
+import { UserDropdown } from "./UserDropdown"
 import styles from "./Header.module.css"
 
 export const Header = () => {
@@ -34,9 +35,7 @@ export const Header = () => {
         <Link href="/burgers" className={isActive("/burgers")}>
           {i18n.menuBurgers}
         </Link>
-        <Link href="/profile" className={styles.loginBtn}>
-          {i18n.menuProfile}
-        </Link>
+        <UserDropdown />
       </nav>
     </header>
   )

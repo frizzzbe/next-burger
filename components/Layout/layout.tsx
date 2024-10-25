@@ -2,8 +2,8 @@ import Head from "next/head"
 import { useLocale } from "@/hooks/useLocale"
 import { shantellSans } from "@/fonts"
 import cn from "classnames"
-import { Header } from "../Header"
-import { Footer } from "../footer"
+import { Header } from "@/modules/Header"
+import { Footer } from "@/components/Footer"
 import type { LayoutProps } from "./types"
 
 export const Layout = ({ children }: LayoutProps) => {
