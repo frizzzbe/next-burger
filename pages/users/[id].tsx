@@ -6,7 +6,12 @@ import type { UserTypeProps, UserType } from "@/types/userTypes"
 export const getStaticPaths = async () => {
   try {
     const { data } = await axiosGet(`${process.env.USERS_URL}?per_page=12`)
-    const paths = data.map((user) => ({ params: { id: String(user.id) } }))
+    const paths = data.flatMap((user) => {
+      return [
+        { params: { id: String(user.id) }, locale: "en" },
+        { params: { id: String(user.id) }, locale: "ru" },
+      ]
+    })
     return {
       paths,
       fallback: false,
