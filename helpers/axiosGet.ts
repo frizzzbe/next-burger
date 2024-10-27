@@ -5,5 +5,5 @@ export const axiosGet = (url: string) =>
     .get(url)
     .then((res) => res.data)
     .catch((error) => {
-      throw new Error(error)
+      console.error("error:", error)
     })

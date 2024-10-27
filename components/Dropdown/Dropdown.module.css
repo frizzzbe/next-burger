@@ -23,4 +23,8 @@
   position: absolute;
   margin-top: 4px;
   right: 0;
+  z-index: 100;
+  background-color: #f1f1f1;
+  padding: 8px;
+  border-radius: 8px;
 }
