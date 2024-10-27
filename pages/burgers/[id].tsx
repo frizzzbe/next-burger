@@ -1,6 +1,8 @@
 import Head from "next/head"
+import Link from "next/link"
 import { Burger } from "@/modules/BurgersTemplate/Burger"
 import { getBurgers } from "@/helpers/getBurgers"
+import { useLocale } from "@/hooks/useLocale"
 import type { BurgerType, BurgerTypeProps } from "@/types/burgerTypes"
 
 export const getStaticPaths = async () => {
@@ -45,12 +47,16 @@ export const getStaticProps = async (context) => {
 }
 
 const SingleBurger = ({ burger }: BurgerTypeProps) => {
+  const i18n = useLocale()
   return (
     <>
       <Head>
         <title>{burger.name}</title>
       </Head>
       <Burger burger={burger} />
+      <Link href="/burgers" className="btn center">
+        {i18n.allBurgers}
+      </Link>
     </>
   )
 }
