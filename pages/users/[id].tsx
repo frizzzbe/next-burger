@@ -43,9 +43,7 @@ const SingleUser = ({ user }: UserTypeProps) => {
   return (
     <>
       <Head>
-        <title>
-          Пользователь: {user.first_name} {user.last_name}
-        </title>
+        <title>{`Пользователь: ${user.first_name} ${user.last_name}`}</title>
       </Head>
       <User user={user} />
     </>

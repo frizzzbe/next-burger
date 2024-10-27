@@ -14,6 +14,7 @@ export const en = {
   menuLogin: "Login",
   menuLogout: "Logout",
   menuProfile: "Profile",
+  dropdownUser: "User menu",
   allBurgers: `All burgers`,
   burgersMenu: `Menu`,
   aboutP1: `Fatty burgers are good old burgers according to the classic recipe, the right size and for a reasonable price.`,

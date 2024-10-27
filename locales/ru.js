@@ -14,6 +14,7 @@ export const ru = {
   menuLogin: "Войти",
   menuLogout: "Выйти",
   menuProfile: "Профиль",
+  dropdownUser: "Меню пользователя",
   allBurgers: `Все бургеры`,
   burgersMenu: `Меню`,
   aboutP1: `Жирные бургеры - это старые добрые бургеры по классической рецептуре, нужных размеров и за приемлемую цену.`,
