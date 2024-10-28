@@ -28,6 +28,8 @@ export const en = {
   notFoundMessage: "Something went wrong",
   notFoundAction: "Go to the",
   notFoundLinkMain: "main page",
+  emptyMessage: "Unfortunately, nothing was found",
+  userTitle: "User",
   usersTitle: "List of users",
   usersFilter: "Select a filter",
   usersSortItem1: "Sort by User ID",

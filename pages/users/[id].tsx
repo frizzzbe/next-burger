@@ -2,6 +2,7 @@ import Head from "next/head"
 import { User } from "@/modules/UsersTemplate/User"
 import { axiosGet } from "@/helpers/axiosGet"
 import type { UserTypeProps, UserType } from "@/types/userTypes"
+import { useLocale } from "@/hooks/useLocale"
 
 export const getStaticPaths = async () => {
   try {
@@ -40,10 +41,11 @@ export const getStaticProps = async (context) => {
 }
 
 const SingleUser = ({ user }: UserTypeProps) => {
+  const i18n = useLocale()
   return (
     <>
       <Head>
-        <title>{`Пользователь: ${user.first_name} ${user.last_name}`}</title>
+        <title>{`${i18n.userTitle}: ${user.first_name} ${user.last_name}`}</title>
       </Head>
       <User user={user} />
     </>

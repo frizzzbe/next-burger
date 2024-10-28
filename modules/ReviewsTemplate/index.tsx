@@ -32,7 +32,7 @@ export const ReviewsTemplate = () => {
           {reviews.length ? (
             reviews.slice(0, 20).map((res) => <Review key={res.id} {...res} />)
           ) : (
-            <p>Отзывы не найдены</p>
+            <p>{i18n.emptyMessage}</p>
           )}
         </ul>
         {commentId && (

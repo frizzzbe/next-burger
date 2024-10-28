@@ -28,6 +28,8 @@ export const ru = {
   notFoundMessage: "Что-то пошло не так",
   notFoundAction: "Перейти на",
   notFoundLinkMain: "главную страницу",
+  emptyMessage: "К сожалению ничего не найдено",
+  userTitle: "Пользователь",
   usersTitle: "Список пользователей",
   usersFilter: "Выберите фильтр",
   usersSortItem1: "Сортировать по ID пользователя",
